@@ -2,9 +2,11 @@ package test;
 
 import com.example.progetto.*;
 import dao.StandardStringDAO;
+import entity.DatiLogin;
 import entity.StandardString;
 import service.StandardStringService;
-
+import service.DatiLoginService;
+import dao.DatiLoginDAO;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -44,6 +46,14 @@ public class Test {
             service.insertStringa(new StandardString("spagna"));
             service.insertStringa(new StandardString("portogallo"));
             service.insertStringa(new StandardString("cina"));*/
+            
+            DatiLoginDAO dao1 = new DatiLoginDAO(manager);
+            DatiLoginService login = new DatiLoginService(manager, dao1);
+            
+            //login.insertDato(new DatiLogin("utente1", "password1", "admin"));
+            //login.insertDato(new DatiLogin("utente2", "password2", "base"));
+            
+            //login.deleteDato(1);
 
             List<String> listaPaesi = service.getListaStrings();
 
