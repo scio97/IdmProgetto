@@ -20,6 +20,7 @@ public class Test {
         Algoritmo algoritmo = (AlgoritmoContains)context.getBean("contains");
         String input1 = "ITALIE";
         algoritmo.check(input1);*/
+    	
         EntityManager manager = null;
         try {
             //creo gli algoritmi
@@ -47,14 +48,6 @@ public class Test {
             service.insertStringa(new StandardString("portogallo"));
             service.insertStringa(new StandardString("cina"));*/
             
-            DatiLoginDAO dao1 = new DatiLoginDAO(manager);
-            DatiLoginService login = new DatiLoginService(manager, dao1);
-            
-            //login.insertDato(new DatiLogin("utente1", "password1", "admin"));
-            //login.insertDato(new DatiLogin("utente2", "password2", "base"));
-            
-            //login.deleteDato(1);
-
             List<String> listaPaesi = service.getListaStrings();
 
             //System.out.println("lista nazioni: "+ lista);

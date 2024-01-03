@@ -9,15 +9,15 @@ import javax.persistence.Id;
 public class DatiLogin {
 
 	@Id
-    private String userName;
-	
-    private String password;
-    private String ruolo;
+	private String userName;
 
-    public DatiLogin() {}
+	private String password;
+	private String ruolo;
+
+	public DatiLogin() {}
 
 	public DatiLogin(String userName, String password, String ruolo) {
-		this.userName = userName;
+		this.userName = userName.toLowerCase();
 		this.password = password;
 		this.ruolo = ruolo;
 	}
@@ -27,7 +27,7 @@ public class DatiLogin {
 	}
 
 	public void setUserName(String userName) {
-		this.userName = userName;
+		this.userName = userName.toLowerCase();
 	}
 
 	public String getPassword() {
@@ -45,5 +45,5 @@ public class DatiLogin {
 	public void setRuolo(String ruolo) {
 		this.ruolo = ruolo;
 	}
-	
+
 }
