@@ -14,6 +14,7 @@ public class AlgoritmoTest {
         lev1.setNext(lev2);
 
         String input = "itale";
+        System.out.println("ciao");
 
         //contains.check(input);
     }
