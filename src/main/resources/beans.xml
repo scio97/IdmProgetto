@@ -4,6 +4,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="contains" class="com.example.progetto.AlgoritmoContains"></bean>
+    <bean id="contains" class="com.example.progetto.Contains"></bean>
+
+    <bean name="locomotiva" class="treno.Locomotiva"></bean>
+
+    <bean name="cargo" class="treno.Cargo"></bean>
+
+    <bean name="passeggero" class="treno.Passeggero"></bean>
+
+    <bean name="ristorante" class="treno.Ristorante"></bean>
 
 </beans>

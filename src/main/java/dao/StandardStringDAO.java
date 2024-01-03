@@ -5,7 +5,7 @@ import entity.StandardString;
 import javax.persistence.EntityManager;
 import java.util.List;
 
-public class StandardStringDAO implements DAOInterface<StandardString>{
+public class StandardStringDAO implements StandardStringDaoInterface{
     private EntityManager manager;
 
     public StandardStringDAO(EntityManager manager){
@@ -32,6 +32,7 @@ public class StandardStringDAO implements DAOInterface<StandardString>{
         manager.remove(ref);
     }
 
+    @Override
     public StandardString findById(int id){
         return manager.find(StandardString.class,id);
     }

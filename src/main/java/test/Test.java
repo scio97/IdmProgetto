@@ -1,16 +1,14 @@
 package test;
 
-import com.example.progetto.Algoritmo;
-import com.example.progetto.AlgoritmoContains;
+import com.example.progetto.*;
 import dao.StandardStringDAO;
 import entity.StandardString;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import service.StandardStringService;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.List;
 
 public class Test {
 
@@ -20,19 +18,38 @@ public class Test {
         Algoritmo algoritmo = (AlgoritmoContains)context.getBean("contains");
         String input1 = "ITALIE";
         algoritmo.check(input1);*/
-
         EntityManager manager = null;
         try {
+            //creo gli algoritmi
+            Algoritmo contains = new Contains();
+            Algoritmo contained = new Contained();
+            Algoritmo lev1 = new Levenshtein1();
+            Algoritmo lev2 = new Levenshtein2();
+
+            //decido l'ordine di esecuzione
+            contains.setNext(contained);
+            contained.setNext(lev1);
+            lev1.setNext(lev2);
+            //creo gli elementi necessari per la gestione del DB
             EntityManagerFactory factory = Persistence.createEntityManagerFactory("persistence");
             manager = factory.createEntityManager();
-            System.out.println("provaprovaprova");
-            StandardString stringa = new StandardString();
-            stringa.setValue("italia");
             StandardStringDAO dao = new StandardStringDAO(manager);
             StandardStringService service = new StandardStringService(manager,dao);
+            /*service.insertStringa(new StandardString("italia"));
+            service.insertStringa(new StandardString("danimarca"));
+            service.insertStringa(new StandardString("francia"));
+            service.insertStringa(new StandardString("germania"));
+            service.insertStringa(new StandardString("canada"));
+            service.insertStringa(new StandardString("irlanda"));
+            service.insertStringa(new StandardString("spagna"));
+            service.insertStringa(new StandardString("portogallo"));
+            service.insertStringa(new StandardString("cina"));*/
 
-            stringa=service.findById(1);
-            service.deleteStringa(stringa.getId());
+            List<String> listaPaesi = service.getListaStrings();
+
+            //System.out.println("lista nazioni: "+ lista);
+
+            contains.check("china",listaPaesi);
 
         } catch (Exception e) {
             e.printStackTrace();

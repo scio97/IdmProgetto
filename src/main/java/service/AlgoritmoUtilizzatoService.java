@@ -1,27 +1,27 @@
 package service;
 
-import dao.StandardStringDAO;
-import entity.StandardString;
+import dao.AlgoritmoUtilizzatoDAO;
+import entity.AlgoritmoUtilizzato;
 
 import javax.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StandardStringService {
+public class AlgoritmoUtilizzatoService {
 
     private EntityManager manager;
 
-    private StandardStringDAO standardStringDAO;
+    private AlgoritmoUtilizzatoDAO algoritmoUtilizzatoDAO;
 
-    public StandardStringService(EntityManager manager, StandardStringDAO standardStringDAO) {
+    public AlgoritmoUtilizzatoService(EntityManager manager, AlgoritmoUtilizzatoDAO algoritmoUtilizzatoDAO) {
         this.manager = manager;
-        this.standardStringDAO = standardStringDAO;
+        this.algoritmoUtilizzatoDAO = algoritmoUtilizzatoDAO;
     }
 
-    public List<StandardString> getListaStandardStrings() {
+    public List<AlgoritmoUtilizzato> getListaAlgoritmoUtilizzato() {
         try {
             manager.getTransaction().begin();
-            List<StandardString> s=standardStringDAO.retrieve();
+            List<AlgoritmoUtilizzato> s=algoritmoUtilizzatoDAO.retrieve();
             manager.getTransaction().commit();
             return s;
         } catch (Exception e) {
@@ -30,13 +30,13 @@ public class StandardStringService {
         }
     }
 
-    public List<String> getListaStrings() {
+    public List<String> getListaAlgoritmo() {
         try {
             manager.getTransaction().begin();
-            List<StandardString> s=standardStringDAO.retrieve();
+            List<AlgoritmoUtilizzato> s=algoritmoUtilizzatoDAO.retrieve();
             List<String> temp = new ArrayList<>();
             for(int i=0; i<s.size(); i++){
-                temp.add(s.get(i).getValue());
+                temp.add(s.get(i).getAlgoritmo());
             }
             manager.getTransaction().commit();
             return temp;
@@ -46,12 +46,23 @@ public class StandardStringService {
         }
     }
 
-    public void updateStringa(int id,String stringa){
+    /*public void updateStringa(int id,String stringa){
         try {
             manager.getTransaction().begin();
-            StandardString temp = standardStringDAO.findById(id);
+            AlgoritmoUtilizzato temp = algoritmoUtilizzatoDAO.findById(id);
             temp.setValue(stringa);
-            standardStringDAO.update(temp);
+            algoritmoUtilizzatoDAO.update(temp);
+            manager.getTransaction().commit();
+        } catch (Exception e) {
+            manager.getTransaction().rollback();
+            throw e;
+        }
+    }*/
+
+    public void deleteRecord(int id){
+        try {
+            manager.getTransaction().begin();
+            algoritmoUtilizzatoDAO.delete(algoritmoUtilizzatoDAO.findById(id));
             manager.getTransaction().commit();
         } catch (Exception e) {
             manager.getTransaction().rollback();
@@ -59,10 +70,10 @@ public class StandardStringService {
         }
     }
 
-    public void deleteStringa(int id){
+    public void insertRecord(AlgoritmoUtilizzato elemento){
         try {
             manager.getTransaction().begin();
-            standardStringDAO.delete(standardStringDAO.findById(id));
+            algoritmoUtilizzatoDAO.create(elemento);
             manager.getTransaction().commit();
         } catch (Exception e) {
             manager.getTransaction().rollback();
@@ -70,21 +81,10 @@ public class StandardStringService {
         }
     }
 
-    public void insertStringa(StandardString elemento){
+    public AlgoritmoUtilizzato findById(int id){
         try {
             manager.getTransaction().begin();
-            standardStringDAO.create(elemento);
-            manager.getTransaction().commit();
-        } catch (Exception e) {
-            manager.getTransaction().rollback();
-            throw e;
-        }
-    }
-
-    public StandardString findById(int id){
-        try {
-            manager.getTransaction().begin();
-            StandardString temp= standardStringDAO.findById(id);
+            AlgoritmoUtilizzato temp= algoritmoUtilizzatoDAO.findById(id);
             manager.getTransaction().commit();
             return temp;
         } catch (Exception e) {
