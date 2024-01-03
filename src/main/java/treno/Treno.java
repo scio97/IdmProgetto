@@ -3,13 +3,14 @@ package treno;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import treno.exception.*;
-
 import java.util.ArrayList;
 
 public class Treno {
+
     ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
     private ArrayList<Vagone> vagoni = new ArrayList<>();
     String input;
+
     public Treno(String input) throws TrenoException {
         this.input = input;
         if (input.length() < 1 ) {
@@ -22,6 +23,7 @@ public class Treno {
         if(input.indexOf('R') != input.lastIndexOf('R')){
             throw new TroppiRistorantiException(input);
         }
+
         Locomotiva locomitiva = new Locomotiva();
         vagoni.add(locomitiva);
 
@@ -33,13 +35,19 @@ public class Treno {
         if(pesoTotale()>locomitiva.getPesoTrainabile()){
             throw new PesoEccessivoException(input);
         }
+
         boolean cargo = false;
         boolean passeggeri = false;
-        boolean ristorante=false;
+        boolean ristorante = false;
+
         for(int i=0; i<input.length(); i++){
 
+            if(input.charAt(i) == 'C' && ristorante){
+                throw new IncompatibilitaCargoException(input);
+            }
+
             if(input.charAt(i) == 'R'){
-                ristorante= true;
+                ristorante = true;
             }
 
             if(input.charAt(i) == 'C' && passeggeri){

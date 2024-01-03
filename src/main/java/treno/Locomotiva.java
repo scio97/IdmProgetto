@@ -1,6 +1,7 @@
 package treno;
 
 public class Locomotiva implements Vagone{
+    
     private double peso,pesoTrainabile,lunghezza;
 
     public Locomotiva(){

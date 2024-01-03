@@ -1,17 +1,11 @@
 package com.example.progetto;
 
 import dao.AlgoritmoUtilizzatoDAO;
-import dao.StandardStringDAO;
 import entity.AlgoritmoUtilizzato;
-import entity.StandardString;
-import org.springframework.beans.factory.annotation.Autowired;
 import service.AlgoritmoUtilizzatoService;
-import service.StandardStringService;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import java.util.Arrays;
 import java.util.List;
 
 public abstract class Algoritmo {
@@ -40,7 +34,7 @@ public abstract class Algoritmo {
                 return algoritmo.getOutput();
             }
         }
-    return null;
+        return null;
     }
 
     public final String check (String input, List<String> standardLista) {

@@ -1,7 +1,9 @@
 package treno;
 
 public class Cargo implements Vagone{
+
     private double peso,lunghezza;
+    
     public Cargo(){
         peso = 1600;
         lunghezza=10;

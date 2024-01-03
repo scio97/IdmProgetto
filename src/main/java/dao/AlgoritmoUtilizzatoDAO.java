@@ -1,9 +1,6 @@
 package dao;
 
-import com.example.progetto.Algoritmo;
 import entity.AlgoritmoUtilizzato;
-import entity.StandardString;
-
 import javax.persistence.EntityManager;
 import java.util.List;
 

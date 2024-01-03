@@ -1,8 +1,10 @@
 package treno.exception;
 
 public class IncompatibilitaCargoException extends TrenoException{
+
     private String sigla;
     private String suggerimento;
+    
     public IncompatibilitaCargoException(String sigla){
         super("Il treno non puo'ospitare sia Cargo che Persone.",sigla);
         String temp1 = "H";

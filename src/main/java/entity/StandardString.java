@@ -11,7 +11,6 @@ public class StandardString {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     private String value;
 
     public StandardString() {

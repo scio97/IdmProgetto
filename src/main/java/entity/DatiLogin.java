@@ -1,8 +1,6 @@
 package entity;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -10,7 +8,6 @@ public class DatiLogin {
 
 	@Id
 	private String userName;
-
 	private String password;
 	private String ruolo;
 
@@ -45,5 +42,4 @@ public class DatiLogin {
 	public void setRuolo(String ruolo) {
 		this.ruolo = ruolo;
 	}
-
 }

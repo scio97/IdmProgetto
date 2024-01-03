@@ -2,11 +2,8 @@ package service;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.transaction.Transactional;
-
 import org.springframework.stereotype.Service;
-
 import dao.DatiLoginDAO;
 import entity.DatiLogin;
 
@@ -15,7 +12,6 @@ public class DatiLoginService {
 
 	@PersistenceContext
 	private EntityManager manager;
-
 	private DatiLoginDAO datiLoginDAO;
 
 	public DatiLoginService(EntityManager manager, DatiLoginDAO datiLoginDAO) {

@@ -13,8 +13,5 @@ public class AlgoritmoTest {
         contained.setNext(lev1);
         lev1.setNext(lev2);
 
-        String input = "itale";
-
-        //contains.check(input);
     }
 }

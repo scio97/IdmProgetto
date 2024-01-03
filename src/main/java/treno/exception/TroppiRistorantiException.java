@@ -1,8 +1,10 @@
 package treno.exception;
 
 public class TroppiRistorantiException extends TrenoException{
+
     private String sigla;
     private String suggerimento;
+    
     public TroppiRistorantiException(String sigla){
         super("Ristoranti in eccesso",sigla);
         String temp="";

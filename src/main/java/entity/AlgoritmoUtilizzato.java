@@ -11,7 +11,6 @@ public class AlgoritmoUtilizzato {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     private String input;
     private String output;
     private String algoritmo;

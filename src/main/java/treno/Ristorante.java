@@ -1,6 +1,7 @@
 package treno;
 
 public class Ristorante implements Vagone{
+    
     private double peso,lunghezza;
 
     public Ristorante(){

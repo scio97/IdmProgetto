@@ -1,8 +1,10 @@
 package treno.exception;
 
 public class LocomotivaNonInTestaException extends TrenoException{
+
     private String sigla;
     private String suggerimento;
+    
     public LocomotivaNonInTestaException(String sigla){
         super("Locomotiva non in testa",sigla);
         String temp="";

@@ -2,7 +2,6 @@ package service;
 
 import dao.AlgoritmoUtilizzatoDAO;
 import entity.AlgoritmoUtilizzato;
-
 import javax.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +9,6 @@ import java.util.List;
 public class AlgoritmoUtilizzatoService {
 
 	private EntityManager manager;
-
 	private AlgoritmoUtilizzatoDAO algoritmoUtilizzatoDAO;
 
 	public AlgoritmoUtilizzatoService(EntityManager manager, AlgoritmoUtilizzatoDAO algoritmoUtilizzatoDAO) {

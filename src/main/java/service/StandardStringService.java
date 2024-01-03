@@ -2,7 +2,6 @@ package service;
 
 import dao.StandardStringDAO;
 import entity.StandardString;
-
 import javax.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +9,6 @@ import java.util.List;
 public class StandardStringService {
 
     private EntityManager manager;
-
     private StandardStringDAO standardStringDAO;
 
     public StandardStringService(EntityManager manager, StandardStringDAO standardStringDAO) {

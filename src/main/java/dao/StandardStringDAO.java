@@ -1,7 +1,6 @@
 package dao;
 
 import entity.StandardString;
-
 import javax.persistence.EntityManager;
 import java.util.List;
 

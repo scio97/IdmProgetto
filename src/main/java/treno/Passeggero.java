@@ -1,6 +1,7 @@
 package treno;
 
 public class Passeggero implements Vagone{
+    
     private int posti;
     private double peso,lunghezza;
 

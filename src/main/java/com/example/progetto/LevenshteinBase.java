@@ -15,7 +15,6 @@ public abstract class LevenshteinBase extends Algoritmo{
         return calculateLevenshteinDistance(input,standard)<=soglia;
     }
 
-
     public static int calculateLevenshteinDistance(String s1, String s2) {
         int[][] dp = new int[s1.length() + 1][s2.length() + 1];
 

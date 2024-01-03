@@ -1,9 +1,7 @@
 package dao;
 
 import java.util.List;
-
 import javax.persistence.EntityManager;
-
 import entity.DatiLogin;
 
 public class DatiLoginDAO implements DatiLoginDAOInterface {
@@ -41,7 +39,4 @@ public class DatiLoginDAO implements DatiLoginDAOInterface {
 	public DatiLogin findByUserName(String userName) {
 		return manager.find(DatiLogin.class, userName);
 	}
-
-
-
 }

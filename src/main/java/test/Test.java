@@ -2,11 +2,7 @@ package test;
 
 import com.example.progetto.*;
 import dao.StandardStringDAO;
-import entity.DatiLogin;
-import entity.StandardString;
 import service.StandardStringService;
-import service.DatiLoginService;
-import dao.DatiLoginDAO;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;

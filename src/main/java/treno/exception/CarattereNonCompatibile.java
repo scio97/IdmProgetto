@@ -1,8 +1,10 @@
 package treno.exception;
 
 public class CarattereNonCompatibile extends  TrenoException{
+
     private String sigla;
     private String suggerimento;
+    
     public CarattereNonCompatibile(String sigla){
         super("Utilizzo di caratteri diversi da (H,C,P,R)",sigla);
 
