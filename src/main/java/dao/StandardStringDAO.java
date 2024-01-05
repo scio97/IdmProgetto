@@ -1,10 +1,17 @@
 package dao;
 
 import entity.StandardString;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
+@Repository
 public class StandardStringDAO implements StandardStringDaoInterface{
+
+    @PersistenceContext
     private EntityManager manager;
 
     public StandardStringDAO(EntityManager manager){

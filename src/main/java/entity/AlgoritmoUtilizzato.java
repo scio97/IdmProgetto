@@ -1,9 +1,6 @@
 package entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class AlgoritmoUtilizzato {
@@ -11,6 +8,7 @@ public class AlgoritmoUtilizzato {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String input;
     private String output;
     private String algoritmo;
@@ -49,5 +47,15 @@ public class AlgoritmoUtilizzato {
 
     public void setAlgoritmo(String algoritmo) {
         this.algoritmo = algoritmo;
+    }
+
+    @Override
+    public String toString() {
+        return "AlgoritmoUtilizzato{" +
+                "id=" + id +
+                ", input='" + input + '\'' +
+                ", output='" + output + '\'' +
+                ", algoritmo='" + algoritmo + '\'' +
+                '}';
     }
 }

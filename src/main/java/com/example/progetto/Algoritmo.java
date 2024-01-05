@@ -2,14 +2,24 @@ package com.example.progetto;
 
 import dao.AlgoritmoUtilizzatoDAO;
 import entity.AlgoritmoUtilizzato;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import service.AlgoritmoUtilizzatoService;
+import service.Cerchio;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.List;
-
+@Component
 public abstract class Algoritmo {
     private Algoritmo next=null;
+
+    @Autowired
+    Cerchio foro;
+
+    @Autowired
+    AlgoritmoUtilizzatoService service;
 
     /*protected List<String> standardLista = Arrays.asList(
             "italia", "stati uniti", "francia", "germania", "cina",
@@ -21,12 +31,6 @@ public abstract class Algoritmo {
     }
 
     public String checkPresente(String input){
-        EntityManager manager = null;
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("persistence");
-        manager = factory.createEntityManager();
-        AlgoritmoUtilizzatoDAO dao = new AlgoritmoUtilizzatoDAO(manager);
-        AlgoritmoUtilizzatoService service = new AlgoritmoUtilizzatoService(manager,dao);
-
         input = input.toLowerCase();
         List<AlgoritmoUtilizzato> lista= service.getListaAlgoritmoUtilizzato();
         for(AlgoritmoUtilizzato algoritmo : lista){
@@ -38,11 +42,6 @@ public abstract class Algoritmo {
     }
 
     public final String check (String input, List<String> standardLista) {
-        EntityManager manager = null;
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("persistence");
-        manager = factory.createEntityManager();
-        AlgoritmoUtilizzatoDAO dao = new AlgoritmoUtilizzatoDAO(manager);
-        AlgoritmoUtilizzatoService service = new AlgoritmoUtilizzatoService(manager,dao);
 
         input = input.toLowerCase();
 
@@ -76,4 +75,11 @@ public abstract class Algoritmo {
 
     protected abstract boolean checkInternal(String input,String standard);
 
+    @Override
+    public String toString() {
+        return "Algoritmo{" +
+                ", foro=" + foro +
+                ", service=" + service +
+                '}';
+    }
 }

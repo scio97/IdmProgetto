@@ -3,31 +3,26 @@ package service;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import dao.DatiLoginDAO;
 import entity.DatiLogin;
 
+@Transactional
 @Service
 public class DatiLoginService {
 
-	@PersistenceContext
-	private EntityManager manager;
+	@Autowired
 	private DatiLoginDAO datiLoginDAO;
 
-	public DatiLoginService(EntityManager manager, DatiLoginDAO datiLoginDAO) {
-		this.manager = manager;
-		this.datiLoginDAO = datiLoginDAO;
-	}
-	@Transactional
 	public void insertDato(DatiLogin dato) {
 		try {
 			// Verifica se l'username è già presente
 			if (findByUserName(dato.getUserName()) == null) {
 				// Verifica la password 
 				if(checkPassword(dato.getPassword())) {
-					manager.getTransaction().begin();
 					datiLoginDAO.create(dato);
-					manager.getTransaction().commit();
 					System.out.println("Dato inserito con successo.");
 				}  else {
 					System.out.println("Password non valida, deve contenere almeno un carattere Maiuscolo e un numero");
@@ -36,30 +31,23 @@ public class DatiLoginService {
 				System.out.println("L'username è già presente nel database.");
 			}
 		} catch (Exception e) {
-			manager.getTransaction().rollback();
 			throw e;
 		}
 	}
-	@Transactional
+
 	public DatiLogin findByUserName(String userName) {
 		try {
-			manager.getTransaction().begin();
 			DatiLogin temp= datiLoginDAO.findByUserName(userName.toLowerCase());
-			manager.getTransaction().commit();
 			return temp;
 		} catch (Exception e) {
-			manager.getTransaction().rollback();
 			throw e;
 		}
 	}
-	@Transactional
+
 	public void deleteDato(String user) {
 		try {
-			manager.getTransaction().begin();
 			datiLoginDAO.delete(datiLoginDAO.findByUserName(user));
-			manager.getTransaction().commit();
 		} catch (Exception e) {
-			manager.getTransaction().rollback();
 			throw e;
 		}
 	}
@@ -88,12 +76,10 @@ public class DatiLoginService {
 	public void updatePassword(String user, String pass){
 		try {
 			if (checkPassword(pass)) {
-				manager.getTransaction().begin();
 				DatiLogin temp = datiLoginDAO.findByUserName(user.toLowerCase());
 				if (temp!=null) {
 					temp.setPassword(pass);
 					datiLoginDAO.update(temp);
-					manager.getTransaction().commit();
 					System.out.println("Password modificata con successo!");
 				} else {
 					System.out.println("Utente non trovato");
@@ -102,7 +88,6 @@ public class DatiLoginService {
 				System.out.println("Password non valida, riprova!");
 			}
 		} catch (Exception e) {
-			manager.getTransaction().rollback();
 			throw e;
 		}
 	}

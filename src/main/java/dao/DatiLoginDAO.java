@@ -2,10 +2,15 @@ package dao;
 
 import java.util.List;
 import javax.persistence.EntityManager;
-import entity.DatiLogin;
+import javax.persistence.PersistenceContext;
 
+import entity.DatiLogin;
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class DatiLoginDAO implements DatiLoginDAOInterface {
 
+	@PersistenceContext
 	private EntityManager manager;
 
 	public DatiLoginDAO(EntityManager manager) {
