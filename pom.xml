@@ -50,6 +50,7 @@
 	</dependencies>
 
 	<build>
+		<outputDirectory>WebContent/WEB-INF/classes</outputDirectory>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

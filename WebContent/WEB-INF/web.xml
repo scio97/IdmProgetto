@@ -1,0 +1,22 @@
+<web-app>
+
+<!--pagina di benvenuto-->
+<welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+</welcome-file-list>
+
+<servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>servlet.LoginServlet</servlet-class>
+</servlet>
+
+<!--mappatura delle servlet (nome-locazione)-->
+<servlet-mapping>
+<servlet-name>LoginServlet</servlet-name>
+<url-pattern>/login</url-pattern>
+</servlet-mapping>
+
+
+</web-app>
+
+<!--<display-name>BeginnersBookServlet</display-name>-->
