@@ -4,7 +4,6 @@ import entity.AlgoritmoUtilizzato;
 import org.springframework.stereotype.Repository;
 import javax.persistence.*;
 import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
@@ -31,12 +30,16 @@ public class AlgoritmoUtilizzatoDAO implements AlgoritmoUtilizzatoDAOInterface{
 
     @Override
     public void update(AlgoritmoUtilizzato ref) {
-        manager.merge(ref);
+        manager.getTransaction().begin();
+        manager.persist(ref);
+        manager.getTransaction().commit();
     }
 
     @Override
     public void delete(AlgoritmoUtilizzato ref) {
+        manager.getTransaction().begin();
         manager.remove(ref);
+        manager.getTransaction().commit();
     }
 
     @Override

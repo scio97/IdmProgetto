@@ -23,7 +23,7 @@ public class TestDb {
         StandardStringService service = context.getBean(StandardStringService.class);
         List<String> listaPaesi = service.getListaString();
 
-        algoritmo.check("itlaia",listaPaesi);
+        algoritmo.check("croeaa",listaPaesi);
 
         //AlgoritmoUtilizzatoService service= context.getBean(AlgoritmoUtilizzatoService.class);
 

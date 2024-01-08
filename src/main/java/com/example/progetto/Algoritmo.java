@@ -1,16 +1,12 @@
 package com.example.progetto;
 
-import dao.AlgoritmoUtilizzatoDAO;
+
 import entity.AlgoritmoUtilizzato;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import service.AlgoritmoUtilizzatoService;
 import service.Cerchio;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.transaction.Transactional;
 import java.util.List;
 @Component
 public abstract class Algoritmo {
@@ -21,11 +17,6 @@ public abstract class Algoritmo {
 
     @Autowired
     private AlgoritmoUtilizzatoService service;
-
-    /*protected List<String> standardLista = Arrays.asList(
-            "italia", "stati uniti", "francia", "germania", "cina",
-            "giappone", "brasile", "india", "canada", "australia"
-    );*/
 
     public void setNext(Algoritmo next){
         this.next = next;
