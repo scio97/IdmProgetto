@@ -8,9 +8,11 @@ public class AlgoritmoUtilizzato {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
+    @Column
     private String input;
+    @Column
     private String output;
+    @Column
     private String algoritmo;
 
     public AlgoritmoUtilizzato() {}

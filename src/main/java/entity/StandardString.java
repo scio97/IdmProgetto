@@ -1,23 +1,22 @@
 package entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class StandardString {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private int id;
-    private String value;
+    @Column
+    private String valore;
 
     public StandardString() {
     }
 
     public StandardString(String value) {
-        this.value = value;
+        this.valore = value;
     }
 
     public int getId() {
@@ -28,11 +27,11 @@ public class StandardString {
         this.id = id;
     }
 
-    public String getValue() {
-        return value;
+    public String getValore() {
+        return valore;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setValore(String valore) {
+        this.valore = valore;
     }
 }

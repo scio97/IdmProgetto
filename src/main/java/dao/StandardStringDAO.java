@@ -6,7 +6,11 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+//import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
+import org.springframework.orm.jpa.JpaTransactionManager;
 
 @Repository
 public class StandardStringDAO implements StandardStringDaoInterface{
@@ -20,11 +24,14 @@ public class StandardStringDAO implements StandardStringDaoInterface{
 
     @Override
     public void create(StandardString ref) {
+        manager.getTransaction().begin();
         manager.persist(ref);
+        manager.getTransaction().commit();
     }
 
     @Override
     public List<StandardString> retrieve() {
+        System.out.println("Manager: " + manager );
         return manager.createQuery("select x from StandardString x", StandardString.class).getResultList();
     }
 

@@ -11,9 +11,9 @@ import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 @Transactional
-@Component
-public class AlgoritmoUtilizzatoService {
+public class AlgoritmoUtilizzatoService{
 
 
 
@@ -29,7 +29,7 @@ public class AlgoritmoUtilizzatoService {
 		}
 	}
 
-	public List<String> getListaAlgoritmo() {
+	public List<String> getListaString() {
 		try {
 			List<AlgoritmoUtilizzato> s=algoritmoUtilizzatoDAO.retrieve();
 			List<String> temp = new ArrayList<>();
@@ -65,7 +65,7 @@ public class AlgoritmoUtilizzatoService {
 
 	public void insertRecord(AlgoritmoUtilizzato elemento){
 		try {
-			System.out.println("Insert record nel DB : " + elemento);
+			System.out.println("Service " + elemento);
 			algoritmoUtilizzatoDAO.create(elemento);
 		} catch (Exception e) {
 			throw e;

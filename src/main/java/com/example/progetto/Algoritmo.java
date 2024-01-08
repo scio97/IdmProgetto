@@ -10,6 +10,7 @@ import service.Cerchio;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.transaction.Transactional;
 import java.util.List;
 @Component
 public abstract class Algoritmo {
@@ -19,7 +20,7 @@ public abstract class Algoritmo {
     Cerchio foro;
 
     @Autowired
-    AlgoritmoUtilizzatoService service;
+    private AlgoritmoUtilizzatoService service;
 
     /*protected List<String> standardLista = Arrays.asList(
             "italia", "stati uniti", "francia", "germania", "cina",

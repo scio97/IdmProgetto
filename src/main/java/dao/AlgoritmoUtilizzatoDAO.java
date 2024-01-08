@@ -2,30 +2,26 @@ package dao;
 
 import entity.AlgoritmoUtilizzato;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Propagation;
-
+import javax.persistence.*;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-//import javax.transaction.Transactional;
+import javax.transaction.Transactional;
 import java.util.List;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 public class AlgoritmoUtilizzatoDAO implements AlgoritmoUtilizzatoDAOInterface{
-
-    @PersistenceContext
-    private EntityManager manager;
 
     public AlgoritmoUtilizzatoDAO(EntityManager manager){
         this.manager = manager;
     }
 
+    @PersistenceContext
+    EntityManager manager;
+
     @Override
     public void create(AlgoritmoUtilizzato ref) {
-        System.out.println("create DAO : " + ref);
+        manager.getTransaction().begin();
         manager.persist(ref);
-        System.out.println(ref.getId());
+        manager.getTransaction().commit();
     }
 
     @Override
@@ -35,7 +31,7 @@ public class AlgoritmoUtilizzatoDAO implements AlgoritmoUtilizzatoDAOInterface{
 
     @Override
     public void update(AlgoritmoUtilizzato ref) {
-        manager.persist(ref);
+        manager.merge(ref);
     }
 
     @Override

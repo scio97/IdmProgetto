@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 public class DatiLoginDAO implements DatiLoginDAOInterface {
 
 	@PersistenceContext
-	private EntityManager manager;
+	EntityManager manager;
 
 	public DatiLoginDAO(EntityManager manager) {
 		this.manager = manager;
