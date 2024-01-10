@@ -17,7 +17,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan(basePackages = {"com.marcoarcarisi.demo.dao","com.marcoarcarisi.demo.service","com.marcoarcarisi.demo.entity","com.marcoarcarisi.demo","com.marcoarcarisi.demo.rest"})
+@ComponentScan(basePackages = {"com.marcoarcarisi.demo.dao","com.marcoarcarisi.demo.service","com.marcoarcarisi.demo.entity","com.marcoarcarisi.demo","com.marcoarcarisi.demo.rest","com.marcoarcarisi.demo.test"})
 public class AppConfig {
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {

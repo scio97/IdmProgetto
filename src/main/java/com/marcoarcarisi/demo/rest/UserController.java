@@ -21,11 +21,18 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String processRegistration(@RequestParam String username,String password, Model model) {
+    public String processRegistration(@RequestParam String username,String password, Model model,HttpSession session) {
         try {
             DatiLogin user = new DatiLogin(username,password,"base");
-            service.insertDato(user);
-            return "Home";
+            boolean inserito=service.insertDato(user);
+            if(inserito){
+                session.setAttribute("user",user);
+                return "Home";
+            } else {
+                model.addAttribute("error", "Credenziali non valide per la registrazione");
+                model.addAttribute("alertClass", "alert-danger"); // Aggiungi un attributo per definire la classe dell'alert
+                return "Register";
+            }
         } catch (Exception e) {
             model.addAttribute("error", "Errore durante la registrazione: " + e.getMessage());
             return "Home";
@@ -39,13 +46,17 @@ public class UserController {
 
     @PostMapping("/login")
     public String processLogin(@RequestParam String username, String password, Model model, HttpSession session) {
+        int state=0;
         try {
             DatiLogin user = new DatiLogin(username,password,"base");
-            if(service.effettuaAccesso(username,password)){
+            if(service.effettuaAccesso(username,password)==true){
                 session.setAttribute("user",user);
                 return "Home";
+            } else {
+                model.addAttribute("error", "Credenziali non valide. Riprova.");
+                model.addAttribute("alertClass", "alert-danger"); // Aggiungi un attributo per definire la classe dell'alert
+                return "Login";
             }
-            return "Home";
         } catch (Exception e) {
             model.addAttribute("error", "Errore durante la registrazione: " + e.getMessage());
             return "Home";

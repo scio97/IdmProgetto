@@ -14,9 +14,6 @@ public abstract class Algoritmo {
     private Algoritmo next=null;
 
     @Autowired
-    Cerchio foro;
-
-    @Autowired
     private AlgoritmoUtilizzatoService service;
 
     public void setNext(Algoritmo next){
@@ -71,7 +68,6 @@ public abstract class Algoritmo {
     @Override
     public String toString() {
         return "Algoritmo{" +
-                ", foro=" + foro +
                 ", service=" + service +
                 '}';
     }

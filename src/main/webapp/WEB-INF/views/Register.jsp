@@ -2,10 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" ></script>
-    <title>registrazione</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Registrazione</title>
 </head>
+
+<body>
 
 <section class="vh-100 gradient-custom">
   <div class="container py-5 h-100">
@@ -17,6 +19,15 @@
             <div class="mb-md-5 mt-md-4 pb-5">
 
               <h2 class="fw-bold mb-2 text-uppercase">Register</h2>
+
+              <c:if test="${not empty error}">
+                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                      <strong>${error}</strong>
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+              </c:if>
+              <%-- Fine blocco alert --%>
+
               <p class="text-white-50 mb-5">Inserisci username e password!</p>
 
             <form action="${pageContext.request.contextPath}/register" method="post">
@@ -41,7 +52,7 @@
 
             <div>
                   <form action="${pageContext.request.contextPath}/login" method="get">
-                      <label>Sei gia registrato? : <input type="SUBMIT" value = "Vai al login!" /></label><br/>
+                      <label>Sei già registrato? : <input type="SUBMIT" value = "Vai al login!" /></label><br/>
                   </form>
               </p>
             </div>
