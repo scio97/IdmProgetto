@@ -1,9 +1,8 @@
-package com.marcoarcarisi.demo.rest;
+package com.marcoarcarisi.demo.controller;
 
 import com.marcoarcarisi.demo.entity.DatiLogin;
 import com.marcoarcarisi.demo.service.DatiLoginService;
 import jakarta.servlet.http.HttpSession;
-import jakarta.websocket.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,7 +39,11 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public String showLoginForm() {
+    public String showLoginForm(HttpSession session) {
+        DatiLogin user = (DatiLogin) session.getAttribute("user");
+        if(user!=null){
+            return "Home";
+        }
         return "Login";
     }
 
@@ -62,4 +65,15 @@ public class UserController {
             return "Home";
         }
     }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        DatiLogin user =(DatiLogin)session.getAttribute("user");
+        if(user!=null){
+            session.setAttribute("user", null);
+            return "Login";
+        }
+        return "Home";
+    }
+
 }

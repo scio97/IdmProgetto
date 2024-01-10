@@ -1,4 +1,4 @@
-package com.marcoarcarisi.demo.rest;
+package com.marcoarcarisi.demo.controller;
 
 import com.marcoarcarisi.demo.service.StandardStringService;
 import org.springframework.beans.factory.annotation.Autowired;
