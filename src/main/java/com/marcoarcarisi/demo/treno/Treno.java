@@ -4,8 +4,8 @@ import com.marcoarcarisi.demo.treno.exception.*;
 import java.util.ArrayList;
 
 public class Treno {
-    private ArrayList<Vagone> vagoni = new ArrayList();
-    String input;
+    private ArrayList<Vagone> vagoni = new ArrayList<>();
+    private String input;
 
     public Treno(String input) throws TrenoException {
         this.input = input;
@@ -13,19 +13,18 @@ public class Treno {
             throw new IllegalArgumentException("Input non valido per la creazione del treno.");
         } else if (input.charAt(0) != 'H') {
             throw new LocomotivaNonInTestaException(input);
-        } else if (input.indexOf(82) != input.lastIndexOf(82)) {
+        } else if (input.indexOf('R') != input.lastIndexOf('R')) {
             throw new TroppiRistorantiException(input);
         } else {
             Locomotiva locomitiva = new Locomotiva();
-            this.vagoni.add(locomitiva);
-
-            for(int i = 1; i < input.length(); ++i) {
-                char tipoVagone = input.charAt(i);
+            vagoni.add(locomitiva);
+            char tipoVagone;
+            for(int i = 1; i < input.length(); i++) {
+                tipoVagone = input.charAt(i);
                 if(tipoVagone == 'H'){
                     throw new MultipleLocomotiveException(input);
                 }
-                Vagone vagone = this.creaVagone(tipoVagone);
-                this.vagoni.add(vagone);
+                vagoni.add(creaVagone(tipoVagone));
             }
 
             if (this.pesoTotale() > locomitiva.getPesoTrainabile()) {
@@ -57,9 +56,9 @@ public class Treno {
                     }
                 }
 
-                if (ristorante && input.charAt(input.length() / 2) != 'R') {
+                /*if (ristorante && input.charAt(input.length() / 2) != 'R') {
                     throw new PosizioneRistoranteException(input);
-                }
+                }*/
             }
         }
     }
@@ -69,11 +68,11 @@ public class Treno {
             case 'C':
                 return new Cargo();
             case 'P':
-                return new Locomotiva();
+                return new Passeggero();
             case 'R':
                 return new Ristorante();
             default:
-                throw new CarattereNonCompatibile(this.input);
+                throw new CarattereNonCompatibile(input);
         }
     }
 
