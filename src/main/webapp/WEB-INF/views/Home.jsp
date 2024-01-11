@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="com.marcoarcarisi.demo.entity.DatiLogin"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <meta charset="UTF-8">
     <title>Homepage</title>
-
+<body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Navbar</a>
@@ -30,6 +31,8 @@
     </div>
   </div>
 </nav>
+
+Username: <%= session.getAttribute("userName")%><br/>
 
 <nav class="navbar bg-body-tertiary">
   <div class="container-fluid">

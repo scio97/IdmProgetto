@@ -20,7 +20,7 @@ public class DatiLogin {
 	}
 
 	public String getUserName() {
-		return userName;
+		return this.userName;
 	}
 
 	public void setUserName(String userName) {
@@ -28,7 +28,7 @@ public class DatiLogin {
 	}
 
 	public String getPassword() {
-		return password;
+		return this.password;
 	}
 
 	public void setPassword(String password) {
@@ -36,7 +36,7 @@ public class DatiLogin {
 	}
 
 	public String getRuolo() {
-		return ruolo;
+		return this.ruolo;
 	}
 
 	public void setRuolo(String ruolo) {
