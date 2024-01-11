@@ -15,7 +15,11 @@ public class UserController {
     private DatiLoginService service;
 
     @GetMapping("/register")
-    public String showRegistrationForm() {
+    public String showRegistrationForm(HttpSession session) {
+        DatiLogin user = (DatiLogin) session.getAttribute("user");
+        if(user!=null){
+            return "Home";
+        }
         return "Register";
     }
 

@@ -24,7 +24,7 @@
         <li class="nav-item">
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          <a class="nav-link " href="${pageContext.request.contextPath}/creaTreno" method="get">Crea un treno!</a>
         </li>
       </ul>
     </div>

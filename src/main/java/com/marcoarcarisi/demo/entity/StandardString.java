@@ -12,8 +12,7 @@ public class StandardString {
     @Column
     private String valore;
 
-    public StandardString() {
-    }
+    public StandardString() {}
 
     public StandardString(String value) {
         this.valore = value;
