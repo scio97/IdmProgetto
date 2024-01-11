@@ -64,7 +64,6 @@ public class Treno {
 				}
 			}
 		}
-	}
 
 	private Vagone creaVagone(char tipoVagone) {
 		switch (tipoVagone) {
