@@ -20,14 +20,13 @@
                             <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
                             <p class="text-white-50 mb-5">Inserisci username e password!</p>
 
-                            <%-- Aggiunto blocco per visualizzare l'alert --%>
                             <c:if test="${not empty error}">
                                 <div class="alert ${alertClass} alert-dismissible fade show" role="alert">
                                     <strong>${error}</strong>
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                             </c:if>
-                            <%-- Fine blocco alert --%>
+
 
                             <form action="${pageContext.request.contextPath}/login" method="post">
                                 <div class="form-outline form-white mb-4">
