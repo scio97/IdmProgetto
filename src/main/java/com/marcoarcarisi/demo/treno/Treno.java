@@ -13,11 +13,11 @@ public class Treno {
             throw new IllegalArgumentException("Input non valido per la creazione del treno.");
         } else if (input.charAt(0) != 'H') {
             throw new LocomotivaNonInTestaException(input);
-        } else if (input.indexOf(82) != input.lastIndexOf(82)) {
+        } else if (input.indexOf('R') != input.lastIndexOf('R')) {
             throw new TroppiRistorantiException(input);
         } else {
             Locomotiva locomitiva = new Locomotiva();
-            this.vagoni.add(locomitiva);
+            vagoni.add(locomitiva);
 
             for(int i = 1; i < input.length(); ++i) {
                 char tipoVagone = input.charAt(i);
@@ -25,7 +25,7 @@ public class Treno {
                     throw new MultipleLocomotiveException(input);
                 }
                 Vagone vagone = this.creaVagone(tipoVagone);
-                this.vagoni.add(vagone);
+                vagoni.add(vagone);
             }
 
             if (this.pesoTotale() > locomitiva.getPesoTrainabile()) {
@@ -57,9 +57,9 @@ public class Treno {
                     }
                 }
 
-                if (ristorante && input.charAt(input.length() / 2) != 'R') {
+                /*if (ristorante && input.charAt(input.length() / 2) != 'R') {
                     throw new PosizioneRistoranteException(input);
-                }
+                }*/
             }
         }
     }
@@ -73,31 +73,30 @@ public class Treno {
             case 'R':
                 return new Ristorante();
             default:
-                throw new CarattereNonCompatibile(this.input);
+                throw new CarattereNonCompatibile(input);
         }
     }
 
+    @Override
     public String toString() {
-        return "Treno{vagoni=" + String.valueOf(this.vagoni) + "}";
+        return "Treno{" +
+                "vagoni=" + vagoni +
+                '}';
     }
 
-    public double pesoTotale() {
-        double peso = 0.0;
-
-        for(int i = 0; i < this.vagoni.size(); ++i) {
-            peso += ((Vagone)this.vagoni.get(i)).getPeso();
+    public double pesoTotale(){
+        double peso=0;
+        for(int i=0; i<vagoni.size();i++){
+            peso+=vagoni.get(i).getPeso();
         }
-
         return peso;
     }
 
-    public double lunghezzaTotale() {
-        double lunghezza = 0.0;
-
-        for(int i = 0; i < this.vagoni.size(); ++i) {
-            lunghezza += ((Vagone)this.vagoni.get(i)).getLunghezza();
+    public double lunghezzaTotale(){
+        double lunghezza=0;
+        for(int i=0; i<vagoni.size();i++){
+            lunghezza+=vagoni.get(i).getLunghezza();
         }
-
         return lunghezza;
     }
 
