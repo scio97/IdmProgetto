@@ -8,10 +8,10 @@ public class test {
         Treno choochoo = null;
 
         try {
-            choochoo = new Treno("HPPPRPPPP");
-        } catch (TrenoException var3) {
-            System.out.println(var3.getMessage());
-            System.out.println(var3.getSuggerimento());
+            choochoo = new Treno("HPPPRPP");
+        } catch (TrenoException e) {
+            System.out.println(e.getMessage());
+            System.out.println(e.getSuggerimento());
         }
 
         System.out.println(choochoo.toString());
