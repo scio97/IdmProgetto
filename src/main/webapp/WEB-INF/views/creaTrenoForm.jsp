@@ -4,10 +4,14 @@
     <title>Crea Treno</title>
 </head>
 <body>
-    <form action="/creaTreno" method="post">
-        <label for="input">Input per il treno:</label>
-        <input type="text" name="input" required>
-        <button type="submit">Crea Treno</button>
-    </form>
+    <form method="post" action="/creaTreno">
+    <label for="input">Stringa del Treno:</label>
+    <input type="text" id="input" name="input" required>
+
+    <label for="nazionalita">Nazionalità:</label>
+    <input type="text" id="nazionalita" name="nazionalita" required>
+
+    <button type="submit">Crea Treno</button>
+</form>
 </body>
 </html>
