@@ -8,6 +8,10 @@ public class Locomotiva implements Vagone {
     public Locomotiva() {
     }
 
+    public char tipo(){
+        return 'H';
+    }
+
     public double getPeso() {
         return this.peso;
     }

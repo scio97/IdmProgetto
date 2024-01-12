@@ -4,6 +4,10 @@ public class Cargo implements Vagone {
     private double peso = 1600.0;
     private double lunghezza = 10.0;
 
+    public char tipo(){
+        return 'C';
+    }
+
     public Cargo() {
     }
 

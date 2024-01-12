@@ -65,6 +65,14 @@ public class Treno {
 			}
 		}
 
+	public String getInput(){
+		return this.input;
+	}
+
+	public ArrayList<Vagone> getVagoni() {
+		return this.vagoni;
+	}
+
 	private Vagone creaVagone(char tipoVagone) {
 		switch (tipoVagone) {
 		case 'C':

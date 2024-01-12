@@ -7,6 +7,10 @@ public class Ristorante implements Vagone {
     public Ristorante() {
     }
 
+    public char tipo(){
+        return 'R';
+    }
+
     public double getPeso() {
         return this.peso;
     }

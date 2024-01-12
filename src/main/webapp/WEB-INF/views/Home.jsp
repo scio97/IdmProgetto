@@ -69,8 +69,13 @@
         }
 
         .footer {
-            background-color: #2980b9; /* Blu più intenso */
-            color: #ffffff;
+            background-color: #2980b9;
+            color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: auto;
+            text-align: center;
         }
     </style>
 </head>
@@ -164,11 +169,9 @@
     </div>
 </div>
 
-<footer class="footer mt-auto py-3 text-center">
-    <div class="container">
-        <p>&copy; 2024 creaTreno.com. Tutti i diritti riservati.</p>
-    </div>
-</footer>
+<div class="footer">
+    <p>&copy; 2024 Trenino. Tutti i diritti riservati.</p>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

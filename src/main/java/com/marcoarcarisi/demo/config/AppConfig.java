@@ -77,7 +77,7 @@ public class AppConfig {
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/test?useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&SqlSafeUpdates=true");
         dataSource.setUsername("root");
-        dataSource.setPassword("123456");
+        dataSource.setPassword("3682");
         return dataSource;
     }
 

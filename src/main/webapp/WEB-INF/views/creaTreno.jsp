@@ -45,7 +45,7 @@
 
         .box-container {
             display: flex;
-            flex-wrap: wrap;
+            gap: 20px; /* Aggiunto il gap tra i box */
             justify-content: space-between;
             margin-bottom: 40px;
             padding: 20px;
@@ -55,8 +55,8 @@
         }
 
         .box {
-            flex-basis: calc(25% - 20px);
-            margin-bottom: 20px;
+            flex: 1; /* Occupa tutto lo spazio disponibile */
+            max-width: 200px; /* Larghezza massima del box */
             text-align: center;
             padding: 10px;
             border: 1px solid #bdc3c7; /* Colore bordo tendente al blu */
@@ -125,12 +125,13 @@
         }
 
         .footer {
-            background-color: #2980b9; /* Blu più intenso */
+            background-color: #2980b9;
             color: #fff;
             padding: 10px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-top: auto;
+            text-align: center;
         }
     </style>
 </head>
@@ -144,25 +145,25 @@
             <div class="box">
                 <h3>Locomotiva</h3>
                 <img src="/images/locomotiva_image.png" alt="Locomotiva">
-                <p>Lettera: <b>H</b></p>
+                <p>Lettera: <b>H</b></p><br>
                 <p>Una potente locomotiva per guidare il tuo treno.</p>
             </div>
             <div class="box">
                 <h3>Vagone Passeggeri</h3>
                 <img src="/images/passeggeri_image.png" alt="Vagone Passeggeri">
-                <p>Lettera: <b>P</b></p>
+                <p>Lettera: <b>P</b></p><br>
                 <p>Un comodo vagone per i tuoi passeggeri.</p>
             </div>
             <div class="box">
                 <h3>Vagone Cargo</h3>
                 <img src="/images/cargo_image.png" alt="Vagone Cargo">
-                <p>Lettera: <b>C</b></p>
+                <p>Lettera: <b>C</b></p><br>
                 <p>Un resistente vagone per il trasporto di merci.</p>
             </div>
             <div class="box">
                 <h3>Vagone Ristorante</h3>
                 <img src="/images/ristorante_image.png" alt="Vagone Ristorante">
-                <p>Lettera: <b>R</b></p>
+                <p>Lettera: <b>R</b></p><br>
                 <p>Un vagone ristorante per servire deliziosi pasti durante il viaggio.</p>
             </div>
         </div>
@@ -179,14 +180,13 @@
             <input type="text" id="nazionalita" name="nazionalita" required>
 
             <button type="submit">Crea Treno</button>
+            <br><br>
         </form>
     </div>
 
-    <footer class="footer mt-auto py-3 text-center">
-        <div class="container">
-            <p>&copy; 2024 Trenino. Tutti i diritti riservati.</p>
-        </div>
-    </footer>
+    <div class="footer">
+        <p>&copy; 2024 Trenino. Tutti i diritti riservati.</p>
+    </div>
     
 </body>
 </html>

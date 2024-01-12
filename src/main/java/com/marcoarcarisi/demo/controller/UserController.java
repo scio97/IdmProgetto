@@ -29,7 +29,7 @@ public class UserController {
             DatiLogin user = new DatiLogin(username,password,"base");
             boolean inserito=service.insertDato(user);
             if(inserito){
-                session.setAttribute("user",user);
+                session.setAttribute("user",user.getUserName());
                 return "Home";
             } else {
                 model.addAttribute("error", "Credenziali non valide per la registrazione");

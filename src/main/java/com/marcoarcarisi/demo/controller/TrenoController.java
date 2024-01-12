@@ -32,12 +32,13 @@ public class TrenoController {
 
 
 	@PostMapping("/creaTreno")
-	public String creaTreno(@RequestParam String input,String nazionalita, Model model, HttpSession session) {
+	public String creaTreno(@RequestParam String input, String nazionalita, Model model, HttpSession session) {
 		try {
 			Treno choochoo = new Treno(input);
 			model.addAttribute("treno", choochoo);
-			String utente = (String)session.getAttribute("user");
-			if(utente!=null) {
+			model.addAttribute("stringaTreno",input);
+			String utente = (String) session.getAttribute("user");
+			if (utente != null) {
 				TreniCreati treno = new TreniCreati(input, utente, nazionalita);
 				treniCreatiService.insertTrenoCreato(treno);
 			}
@@ -45,7 +46,7 @@ public class TrenoController {
 			model.addAttribute("errore", e.getMessage());
 			model.addAttribute("suggerimento", e.getSuggerimento());
 		}
-		return "redirect:mostraTreno";
+		return "mostraTreno";
 	}
 }
 

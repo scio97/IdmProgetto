@@ -8,6 +8,10 @@ public class Passeggero implements Vagone {
     public Passeggero() {
     }
 
+    public char tipo(){
+        return 'P';
+    }
+
     public double getPeso() {
         return this.peso;
     }
