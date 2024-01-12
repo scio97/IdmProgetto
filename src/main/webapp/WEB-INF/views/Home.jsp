@@ -9,7 +9,6 @@
 </head>
 <body>
 
-  <p>il nome utente e': <%= session.getAttribute("user") %></p>
           
 </body>
 </html>
