@@ -27,10 +27,10 @@
 
     <% if (request.getAttribute("treno") != null) { %>
         <h2>Dettagli Treno</h2>
-        <p>Peso totale treno: <%= request.getAttribute("treno.pesoTotale()") %> Kg</p>
-        <p>Lunghezza totale treno: <%= request.getAttribute("treno.lunghezzaTotale()") %> m</p>
-        <p>Velocità massima: <%= request.getAttribute("treno.velocita()") %> Km/h</p>
-        <p>Stringa di input: <%= request.getAttribute("stringaTreno") %></p>
+        <p>Peso totale treno: ${treno.pesoTotale()} Kg</p>
+        <p>Lunghezza totale treno: ${treno.lunghezzaTotale()} m</p>
+        <p>Velocità massima: ${treno.velocita()} Km/h</p>
+        <p>Stringa di input: ${treno.getInput()} </p>
 
         <h3>Vagoni:</h3>
 
@@ -40,13 +40,13 @@
 
                 <%-- Stampa un'immagine in base al valore del carattere con dimensioni in percentuale --%>
                 <% if (carattere == 'H') { %>
-                    <img src="/images/H.png" alt="Immagine H" style="width: 100%;">
+                    <img src="/images/H.png" alt="Immagine H" style="width: 15%;">
                 <% } else if (carattere == 'C') { %>
-                    <img src="/images/C.png" alt="Immagine C" style="width: 100%;">
+                    <img src="/images/C.png" alt="Immagine C" style="width: 10%;">
                 <% } else if (carattere == 'P') { %>
-                    <img src="/images/P.png" alt="Immagine P" style="width: 100%;">
+                    <img src="/images/P.png" alt="Immagine P" style="width: 10%;">
                 <% } else if (carattere == 'R') { %>
-                    <img src="/images/R.png" alt="Immagine R" style="width: 100%;">
+                    <img src="/images/R.png" alt="Immagine R" style="width: 8%;">
                 <% } %>
             <% } %>
         <% } %>
