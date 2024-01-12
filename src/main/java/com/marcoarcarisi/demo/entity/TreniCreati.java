@@ -5,21 +5,33 @@ import javax.persistence.*;
 public class TreniCreati {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
+    private int id;
+
     @Column
     private String user;
 
     @Column
     private String inputCreazione;
 
-
-
     @Column
     private String nazionalita;
 
-    public TreniCreati(String inputCreazione, String user,String nazionalita) {
-        this.inputCreazione = inputCreazione;
+    public TreniCreati() {}
+
+    public TreniCreati(String user, String inputCreazione, String nazionalita) {
         this.user = user;
+        this.inputCreazione = inputCreazione;
         this.nazionalita = nazionalita;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getInputCreazione() {

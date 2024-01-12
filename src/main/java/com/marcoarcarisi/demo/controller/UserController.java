@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.http.HttpRequest;
+
 @Controller
 public class UserController {
 
@@ -15,7 +17,11 @@ public class UserController {
     private DatiLoginService service;
 
     @GetMapping("/register")
-    public String showRegistrationForm() {
+    public String showRegistrationForm(HttpSession session) {
+        DatiLogin user = (DatiLogin) session.getAttribute("user");
+        if(user!=null){
+            return "Home";
+        }
         return "Register";
     }
 
@@ -42,7 +48,8 @@ public class UserController {
     public String showLoginForm(HttpSession session) {
         DatiLogin user = (DatiLogin) session.getAttribute("user");
         if(user!=null){
-            return "Home";
+            session.setAttribute("user",user);
+            return "redirect:/home";
         }
         return "Login";
     }
@@ -53,8 +60,9 @@ public class UserController {
         try {
             DatiLogin user = new DatiLogin(username,password,"base");
             if(service.effettuaAccesso(username,password)==true){
-                session.setAttribute("user",user);
-                return "Home";
+                session.setAttribute("user",(DatiLogin)user);
+                session.setAttribute("userName",user.getUserName());
+                return "redirect:/home";
             } else {
                 model.addAttribute("error", "Credenziali non valide. Riprova.");
                 model.addAttribute("alertClass", "alert-danger"); // Aggiungi un attributo per definire la classe dell'alert
@@ -62,7 +70,7 @@ public class UserController {
             }
         } catch (Exception e) {
             model.addAttribute("error", "Errore durante la registrazione: " + e.getMessage());
-            return "Home";
+            return "redirect:/home";
         }
     }
 
