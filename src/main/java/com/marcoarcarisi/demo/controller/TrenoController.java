@@ -22,21 +22,22 @@ public class TrenoController {
 
 	@GetMapping("/creaTreno")
 	public String mostraFormCreazioneTreno(HttpSession session) {
-		DatiLogin user =(DatiLogin)session.getAttribute("user");
+		String user =(String) session.getAttribute("user");
 		if(user!=null){
 			return "creaTrenoForm";
 		}
 		return "Home";
 	}
 
+
 	@PostMapping("/creaTreno")
 	public String creaTreno(@RequestParam String input,String nazionalita, Model model, HttpSession session) {
 		try {
 			Treno choochoo = new Treno(input);
 			model.addAttribute("treno", choochoo);
-			DatiLogin utente = (DatiLogin) session.getAttribute("user");
+			String utente = (String)session.getAttribute("user");
 			if(utente!=null) {
-				TreniCreati treno = new TreniCreati(input, utente.getUserName(), nazionalita);
+				TreniCreati treno = new TreniCreati(input, utente, nazionalita);
 				treniCreatiService.insertTrenoCreato(treno);
 			}
 		} catch (TrenoException e) {

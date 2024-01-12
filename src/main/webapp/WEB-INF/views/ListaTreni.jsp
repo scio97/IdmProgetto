@@ -3,13 +3,13 @@
 <html>
 <head>
 
-  <title>Homepage</title>
+  <title>Lista Treni</title>
   <%@ include file="navBar.jsp" %>
 
 </head>
 <body>
 
-  <p>il nome utente e': <%= session.getAttribute("user") %></p>
+  <p>Questa pagina mostra la lista dei treni</p>
           
 </body>
 </html>

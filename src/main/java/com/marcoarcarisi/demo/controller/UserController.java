@@ -8,8 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.http.HttpRequest;
-
 @Controller
 public class UserController {
 
@@ -18,9 +16,9 @@ public class UserController {
 
     @GetMapping("/register")
     public String showRegistrationForm(HttpSession session) {
-        DatiLogin user = (DatiLogin) session.getAttribute("user");
-        if(user!=null){
-            return "Home";
+        //String user = session.getAttribute("user");
+        if(session.getAttribute("user") !=null){
+            return "redirect:/";
         }
         return "Register";
     }
@@ -48,21 +46,18 @@ public class UserController {
     public String showLoginForm(HttpSession session) {
         DatiLogin user = (DatiLogin) session.getAttribute("user");
         if(user!=null){
-            session.setAttribute("user",user);
-            return "redirect:/home";
+            return "Home";
         }
         return "Login";
     }
 
     @PostMapping("/login")
     public String processLogin(@RequestParam String username, String password, Model model, HttpSession session) {
-        int state=0;
         try {
             DatiLogin user = new DatiLogin(username,password,"base");
             if(service.effettuaAccesso(username,password)==true){
-                session.setAttribute("user",(DatiLogin)user);
-                session.setAttribute("userName",user.getUserName());
-                return "redirect:/home";
+                session.setAttribute("user",user.getUserName());
+                return "Home";
             } else {
                 model.addAttribute("error", "Credenziali non valide. Riprova.");
                 model.addAttribute("alertClass", "alert-danger"); // Aggiungi un attributo per definire la classe dell'alert
@@ -70,18 +65,19 @@ public class UserController {
             }
         } catch (Exception e) {
             model.addAttribute("error", "Errore durante la registrazione: " + e.getMessage());
-            return "redirect:/home";
+            return "Home";
         }
     }
 
     @GetMapping("/logout")
     public String logout(HttpSession session){
-        DatiLogin user =(DatiLogin)session.getAttribute("user");
-        if(user!=null){
-            session.setAttribute("user", null);
-            return "Login";
+        //DatiLogin user =(DatiLogin)session.getAttribute("user");
+        if(session.getAttribute("user") != null){
+            //session.setAttribute("user", null);
+            session.invalidate();
+            return "redirect:/";
         }
-        return "Home";
+        return "redirect:/";
     }
 
 }
