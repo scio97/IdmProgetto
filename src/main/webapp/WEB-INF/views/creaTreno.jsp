@@ -126,9 +126,7 @@
 
         .footer {
             background-color: #2980b9;
-            color: #fff;
-            padding: 10px;
-            border-radius: 8px;
+            color: white;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-top: auto;
             text-align: center;
