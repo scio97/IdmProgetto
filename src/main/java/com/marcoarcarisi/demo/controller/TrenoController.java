@@ -24,9 +24,10 @@ public class TrenoController {
 	public String mostraFormCreazioneTreno(HttpSession session) {
 		String user =(String) session.getAttribute("user");
 		if(user!=null){
-			return "creaTrenoForm";
+			return "creaTreno";
 		}
-		return "Home";
+		//return "redirect:/";
+		return "creaTreno";
 	}
 
 
@@ -44,7 +45,7 @@ public class TrenoController {
 			model.addAttribute("errore", e.getMessage());
 			model.addAttribute("suggerimento", e.getSuggerimento());
 		}
-		return "mostraTreno";
+		return "redirect:mostraTreno";
 	}
 }
 
