@@ -6,6 +6,92 @@
     <title>Login</title>
     <%@ include file="navBar.jsp" %>
 
+    <style>
+        body {
+            background-color: #f0f5f9;
+            color: #34495e;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .gradient-custom {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+        }
+
+        .card {
+            border-radius: 1rem;
+        }
+
+        .card-body {
+            padding: 5rem;
+            text-align: center;
+        }
+
+        .fw-bold {
+            font-weight: bold;
+        }
+
+        .text-uppercase {
+            text-transform: uppercase;
+        }
+
+        .text-white {
+            color: #ffffff;
+        }
+
+        .text-white-50 {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-outline-light {
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+
+        .btn-outline-light:hover {
+            background-color: #ffffff;
+            color: #3498db;
+        }
+
+        .alert {
+            margin-bottom: 2rem;
+        }
+
+        .fa-lg {
+            font-size: 1.5rem;
+        }
+
+        .d-flex {
+            display: flex;
+        }
+
+        .justify-content-center {
+            justify-content: center;
+        }
+
+        .mt-4 {
+            margin-top: 1.5rem;
+        }
+
+        .pt-1 {
+            padding-top: 0.5rem;
+        }
+
+        .form-outline {
+            display: block;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 1.5rem;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -14,7 +100,7 @@
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                <div class="card bg-dark text-white">
                     <div class="card-body p-5 text-center">
 
                         <div class="mb-md-5 mt-md-4 pb-5">
@@ -28,7 +114,6 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                             </c:if>
-
 
                             <form action="${pageContext.request.contextPath}/login" method="post">
                                 <div class="form-outline form-white mb-4">

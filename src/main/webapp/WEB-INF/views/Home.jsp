@@ -8,41 +8,41 @@
     <!-- Aggiungi altri stili CSS se necessario -->
     <style>
         body {
-            background-color: #1a495b;
-            color: #ffffff;
+            background-color: #f0f5f9; /* Colore sfondo più chiaro tendente al blu */
+            color: #34495e; /* Colore testo più scuro tendente al blu */
         }
 
         .jumbotron {
-            background-color: #003d4c;
+            background-color: #2980b9; /* Blu più intenso */
             color: #ffffff;
             margin-bottom: 20px; /* Aggiunto margine inferiore */
             padding-bottom: 50px; /* Incrementato padding inferiore per aumentare l'altezza */
         }
 
         .btn-primary {
-            background-color: #005064;
-            border-color: #005064;
+            background-color: #005064; /* Blu più scuro */
+            border-color: #005064; /* Blu più scuro */
         }
 
-    .carousel {
-        margin-bottom: 20px; /* Aggiunto margine inferiore al carosello */
-    }
+        .carousel {
+            margin-bottom: 20px; /* Aggiunto margine inferiore al carosello */
+        }
 
-    .custom-card {
-        border: 1px solid rgba(0, 0, 0, 0.125); /* Colore del bordo */
-        border-radius: 10px; /* Bordi arrotondati */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombra */
-        padding: 20px; /* Aggiunto spazio interno */
-        margin-bottom: 20px; /* Aggiunto margine inferiore */
-    }
+        .custom-card {
+            border: 1px solid rgba(0, 0, 0, 0.125); /* Colore del bordo */
+            border-radius: 10px; /* Bordi arrotondati */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombra */
+            padding: 20px; /* Aggiunto spazio interno */
+            margin-bottom: 20px; /* Aggiunto margine inferiore */
+        }
 
-    .custom-card:not(:last-child) {
-        margin-right: 10px; /* Aggiunto margine laterale destro solo per le cards tranne l'ultima */
-    }
+        .custom-card:not(:last-child) {
+            margin-right: 10px; /* Aggiunto margine laterale destro solo per le cards tranne l'ultima */
+        }
 
         .btn-primary:hover {
-            background-color: #003d4c;
-            border-color: #003d4c;
+            background-color: #003d4c; /* Blu più scuro al passaggio del mouse */
+            border-color: #003d4c; /* Blu più scuro al passaggio del mouse */
         }
 
         .carousel {
@@ -52,7 +52,7 @@
         .feature-icon {
             font-size: 4em;
             margin-bottom: 10px;
-            color: #00acc1;
+            color: #00acc1; /* Blu più chiaro */
         }
 
         .carousel-caption {
@@ -69,7 +69,7 @@
         }
 
         .footer {
-            background-color: #003d4c;
+            background-color: #2980b9; /* Blu più intenso */
             color: #ffffff;
         }
     </style>
@@ -109,13 +109,21 @@
             <div class="carousel-item active">
                 <img src="//live.staticflickr.com/7370/8786459840_c598183771_c.jpg" class="d-block mx-auto carousel-img" alt="Treno 1">
                 <div class="carousel-caption">
-                    <h5>Locomotiva del gruppo 625</h5>
+                    <h5>Locomotiva del gruppo 625 (1910)</h5>
                 </div>
             </div>
+
             <div class="carousel-item">
-                <img src="//live.staticflickr.com/5333/8780050601_38c20d00ff_c.jpg" class="d-block mx-auto carousel-img" alt="Treno 2">
+                <img src="//live.staticflickr.com/4045/4621702322_87e57c2650_z.jpg" class="d-block mx-auto carousel-img" alt="Treno 2">
                 <div class="carousel-caption">
-                    <h5>Locomotiva elettrica E656</h5>
+                    <h5>Elettrotreno rapido ETR200 (1939)</h5>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img src="//live.staticflickr.com/5291/5531758271_4b10c5b63b_c.jpg" class="d-block mx-auto carousel-img" alt="Treno 2">
+                <div class="carousel-caption">
+                    <h5>Settebello Etr 300 (1953)</h5>
                 </div>
             </div>
 
@@ -123,14 +131,23 @@
                 <img src="//live.staticflickr.com/4091/4837680524_704679b7aa_b.jpg" class="d-block mx-auto carousel-img" alt="Treno 2">
                 <div class="carousel-caption">
                     <h5>Arlecchino ETR 250
-                        Treno rapido di lusso, anni '60</h5>
+                        Treno rapido di lusso (1960)</h5>
                 </div>
             </div>
 
             <div class="carousel-item">
-                <img src="//live.staticflickr.com/5291/5531758271_4b10c5b63b_c.jpg" class="d-block mx-auto carousel-img" alt="Treno 2">
+                <img src="//live.staticflickr.com/5333/8780050601_38c20d00ff_c.jpg" class="d-block mx-auto carousel-img" alt="Treno 2">
                 <div class="carousel-caption">
-                    <h5>Settebello Etr 300</h5>
+                    <h5>Locomotiva elettrica E656 (1975)</h5>
+                </div>
+            </div>
+
+
+
+            <div class="carousel-item">
+                <img src="https://www.infotrasporti.com/images/articoli/17/16fa2b0294-1024.jpg" class="d-block mx-auto carousel-img" alt="Treno 2">
+                <div class="carousel-caption">
+                    <h5>Frecciarossa 1000 (2015)</h5>
                 </div>
             </div>
 
@@ -149,7 +166,7 @@
 
 <footer class="footer mt-auto py-3 text-center">
     <div class="container">
-        <p>&copy; 2024 Trenino. Tutti i diritti riservati.</p>
+        <p>&copy; 2024 creaTreno.com. Tutti i diritti riservati.</p>
     </div>
 </footer>
 

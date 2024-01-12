@@ -5,13 +5,18 @@
     <title>Crea Treno</title>
     <style>
         body {
+            background-color: #f0f5f9; /* Sfondo più chiaro tendente al blu */
+            color: #34495e; /* Colore testo più scuro tendente al blu */
             font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         .page-container {
+            flex: 1;
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
@@ -22,6 +27,7 @@
             font-size: 24px;
             font-weight: bold;
             margin-bottom: 10px;
+            color: #2980b9; /* Blu più intenso */
         }
 
         .subtitle {
@@ -32,35 +38,36 @@
         }
 
         .instructions {
-            margin-bottom: 30px; /* Aumenta il margine inferiore */
+            margin-bottom: 30px;
             font-size: 14px;
             color: #555;
         }
 
         .box-container {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             margin-bottom: 40px;
             padding: 20px;
-            background-color: #fff;
+            background-color: #ecf0f3; /* Sfondo più chiaro tendente al blu */
             border-radius: 8px;
-            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); /* Riduci l'ombreggiatura */
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
         }
 
         .box {
-            flex: 1;
+            flex-basis: calc(25% - 20px);
+            margin-bottom: 20px;
             text-align: center;
             padding: 10px;
-            border: 1px solid #ccc;
+            border: 1px solid #bdc3c7; /* Colore bordo tendente al blu */
             border-radius: 4px;
-            margin-right: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: #fff;
+            background-color: #dfe6e9; /* Colore sfondo più chiaro tendente al blu */
         }
 
         .box img {
-            width: 100%; /* La larghezza sarà il 100% del contenitore */
-            height: auto; /* Altezza fissa, puoi regolare questo valore in base alle tue preferenze */
+            width: 100%;
+            height: auto;
             object-fit: cover;
             margin-bottom: 10px;
             border-radius: 4px;
@@ -69,6 +76,7 @@
         .box h3 {
             margin-bottom: 8px;
             font-size: 16px;
+            color: #2980b9; /* Blu più intenso */
         }
 
         .box p {
@@ -84,12 +92,14 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
 
         label {
             display: block;
             margin-bottom: 8px;
             font-weight: bold;
+            color: #2980b9; /* Blu più intenso */
         }
 
         input {
@@ -97,12 +107,12 @@
             padding: 8px;
             margin-bottom: 16px;
             box-sizing: border-box;
-            border: 1px solid #ccc;
+            border: 1px solid #bdc3c7; /* Colore bordo tendente al blu */
             border-radius: 4px;
         }
 
         button {
-            background-color: #4caf50;
+            background-color: #3498db; /* Blu più vivido */
             color: #fff;
             padding: 10px 15px;
             border: none;
@@ -111,17 +121,16 @@
         }
 
         button:hover {
-            background-color: #45a049;
+            background-color: #2980b9; /* Blu più intenso al passaggio del mouse */
         }
 
         .footer {
-            text-align: center;
-            margin-top: 20px;
+            background-color: #2980b9; /* Blu più intenso */
+            color: #fff;
             padding: 10px;
-            background-color: #fff; /* Cambiato il colore di sfondo */
-            color: #555; /* Cambia il colore del testo nel footer per migliorare il contrasto */
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: auto;
         }
     </style>
 </head>
@@ -135,28 +144,32 @@
             <div class="box">
                 <h3>Locomotiva</h3>
                 <img src="/images/locomotiva_image.png" alt="Locomotiva">
+                <p>Lettera: <b>H</b></p>
                 <p>Una potente locomotiva per guidare il tuo treno.</p>
             </div>
             <div class="box">
                 <h3>Vagone Passeggeri</h3>
                 <img src="/images/passeggeri_image.png" alt="Vagone Passeggeri">
+                <p>Lettera: <b>P</b></p>
                 <p>Un comodo vagone per i tuoi passeggeri.</p>
             </div>
             <div class="box">
                 <h3>Vagone Cargo</h3>
                 <img src="/images/cargo_image.png" alt="Vagone Cargo">
+                <p>Lettera: <b>C</b></p>
                 <p>Un resistente vagone per il trasporto di merci.</p>
             </div>
             <div class="box">
                 <h3>Vagone Ristorante</h3>
                 <img src="/images/ristorante_image.png" alt="Vagone Ristorante">
+                <p>Lettera: <b>R</b></p>
                 <p>Un vagone ristorante per servire deliziosi pasti durante il viaggio.</p>
             </div>
         </div>
 
         <form method="post" action="/creaTreno">
             <div class="instructions">
-                <p>Compila il seguente modulo per creare un nuovo treno. Inserisci la stringa del treno e il paese di provenienza.</p>
+                <p>Compila il seguente modulo per creare un nuovo treno. La stringa del treno deve essere formata dalle lettere 'H', 'P', 'C', o 'R' concatenate tra loro.</p>
             </div>
             
             <label for="input">Stringa del Treno:</label>
@@ -167,10 +180,13 @@
 
             <button type="submit">Crea Treno</button>
         </form>
-
-        <div class="footer">
-            <p>&copy; 2024 CreaTreno.com. Tutti i diritti riservati.</p>
-        </div>
     </div>
+
+    <footer class="footer mt-auto py-3 text-center">
+        <div class="container">
+            <p>&copy; 2024 Trenino. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+    
 </body>
 </html>
