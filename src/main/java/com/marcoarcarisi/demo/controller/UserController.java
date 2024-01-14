@@ -1,18 +1,25 @@
 package com.marcoarcarisi.demo.controller;
 
 import com.marcoarcarisi.demo.entity.DatiLogin;
+import com.marcoarcarisi.demo.entity.TreniCreati;
 import com.marcoarcarisi.demo.service.DatiLoginService;
+import com.marcoarcarisi.demo.service.TreniCreatiService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class UserController {
 
     @Autowired
     private DatiLoginService service;
+
+    @Autowired
+    private TreniCreatiService treniService;
 
     @GetMapping("/register")
     public String showRegistrationForm(HttpSession session) {
@@ -39,6 +46,18 @@ public class UserController {
         } catch (Exception e) {
             model.addAttribute("error", "Errore durante la registrazione: " + e.getMessage());
             return "Home";
+        }
+    }
+
+    @GetMapping("/profilo")
+    public String showProfile(Model model, HttpSession session) {
+        String username = (String) session.getAttribute("user");
+        if (username != null) {
+            List<TreniCreati> treniCreati = treniService.getTreniByUtente(username);
+            model.addAttribute("treniCreati", treniCreati);
+            return "Profilo";
+        } else {
+            return "redirect:/login";
         }
     }
 

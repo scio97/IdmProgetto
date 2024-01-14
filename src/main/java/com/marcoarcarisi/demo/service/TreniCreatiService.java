@@ -42,4 +42,11 @@ public class TreniCreatiService {
         }
     }
 
+    public List<TreniCreati> getTreniByUtente(String username) {
+        try {
+            return treniCreatiDAO.getTreniByUtente(username);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
 }

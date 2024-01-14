@@ -2,6 +2,7 @@ package com.marcoarcarisi.demo.dao;
 
 import com.marcoarcarisi.demo.entity.TreniCreati;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -45,5 +46,13 @@ public class TreniCreatiDAO  implements TreniCreatiDAOInterface{
 
     public TreniCreati findById(int id){
         return manager.find(TreniCreati.class,id);
+    }
+
+
+    public List<TreniCreati> getTreniByUtente(String username) {
+        String query = "SELECT t FROM TreniCreati t WHERE t.user = :username";
+        return manager.createQuery(query, TreniCreati.class)
+                .setParameter("username", username)
+                .getResultList();
     }
 }

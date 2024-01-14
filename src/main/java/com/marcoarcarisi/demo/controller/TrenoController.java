@@ -39,7 +39,7 @@ public class TrenoController {
 			model.addAttribute("stringaTreno",input);
 			String utente = (String) session.getAttribute("user");
 			if (utente != null) {
-				TreniCreati treno = new TreniCreati(input, utente, nazionalita);
+				TreniCreati treno = new TreniCreati(utente, input, nazionalita);
 				treniCreatiService.insertTrenoCreato(treno);
 			}
 		} catch (TrenoException e) {

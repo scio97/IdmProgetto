@@ -3,7 +3,7 @@
     String username, url, txtAccesso, urlAccesso;
     if(session != null && session.getAttribute("user") != null){
         username = (String) session.getAttribute("user");
-        url = "";
+        url = "profilo";
 
         txtAccesso = "Logout";
         urlAccesso = "logout";
