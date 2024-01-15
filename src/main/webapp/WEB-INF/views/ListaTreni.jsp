@@ -145,7 +145,7 @@ body {
 			<h3>Dettagli Treno</h3>
 
 			<div class="treno-info">
-				<label>user:</label> <span><%= treno.getUser() %></span>
+				<label>creato da:</label> <span><%= treno.getUser() %></span>
 			</div>
 
 			<div class="treno-info">
@@ -162,16 +162,16 @@ body {
 				<% for (char carattere : treno.getInputCreazione().toCharArray()) { %>
 				<!-- Aggiungi logica per mostrare le immagini qui usando il carattere -->
 				<% if (carattere == 'H') { %>
-				<img src="/images/H.png" alt="Immagine H">
+				<img src="/images/H.png" alt="Immagine H" style="width: 15%;">
 				<% } else if (carattere == 'C') { %>
-				<img src="/images/C.png" alt="Immagine C">
+				<img src="/images/C.png" alt="Immagine C" style="width: 10%;">
 				<% } else if (carattere == 'P') { %>
-				<img src="/images/P.png" alt="Immagine P">
+				<img src="/images/P.png" alt="Immagine P" style="width: 10%;">
 				<% } else if (carattere == 'R') { %>
-				<img src="/images/R.png" alt="Immagine R">
+				<img src="/images/R.png" alt="Immagine R" style="width: 8%;">
 				<% } %>
 				<% } %>
-				<!-- Fine logica immagini -->
+
 			</div>
 		</div>
 		<% } %>
