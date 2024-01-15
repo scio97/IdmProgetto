@@ -61,6 +61,12 @@ public class UserController {
         }
     }
 
+    @PostMapping("/eliminaTreno")
+    public String deleteTreno(@RequestParam int trenoId){
+        treniService.deleteTreno(trenoId);
+        return "redirect:/profilo";
+    }
+
     @GetMapping("/login")
     public String showLoginForm(HttpSession session) {
         DatiLogin user = (DatiLogin) session.getAttribute("user");

@@ -26,7 +26,7 @@ public class TreniCreatiService {
         }
     }
 
-    public void deleteStringa(int id){
+    public void deleteTreno(int id){
         try {
             treniCreatiDAO.delete(treniCreatiDAO.findById(id));
         } catch (Exception e) {

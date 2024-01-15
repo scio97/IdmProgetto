@@ -84,6 +84,7 @@ body {
 	margin-right: 10px;
 }
 
+
 .treno-images img {
 	width: 15%;
 	margin-right: 5px;
@@ -117,6 +118,7 @@ body {
         <div class="navbar-left">
             <a href="${pageContext.request.contextPath}/">Home</a>
             <a href="${pageContext.request.contextPath}/creaTreno">Crea un treno!</a>
+            <a href="${pageContext.request.contextPath}/listaTreni">Treni da tutto il mondo!</a>
         </div>
         <div class="navbar-right">
             <% if (username != null) { %>
@@ -169,6 +171,10 @@ body {
 				<% } %>
 				<% } %>
 			</div>
+                <form method="post" action="/eliminaTreno">
+                    <input type="hidden" name="trenoId" value="<%= treno.getId() %>">
+                    <button type="submit" class="delete-button">Elimina</button>
+                </form>
 		</div>
 		<% } %>
 		<% } else { %>
