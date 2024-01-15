@@ -1,9 +1,6 @@
 package com.marcoarcarisi.demo.controller;
 import com.marcoarcarisi.demo.algortitmo.*;
-import com.marcoarcarisi.demo.entity.DatiLogin;
-import com.marcoarcarisi.demo.entity.StandardString;
 import com.marcoarcarisi.demo.entity.TreniCreati;
-import com.marcoarcarisi.demo.service.AlgoritmoUtilizzatoService;
 import com.marcoarcarisi.demo.service.StandardStringService;
 import com.marcoarcarisi.demo.service.TreniCreatiService;
 import jakarta.servlet.http.HttpSession;
@@ -12,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.marcoarcarisi.demo.treno.exception.TrenoException;
@@ -38,8 +34,7 @@ public class TrenoController {
 		if(user!=null){
 			return "creaTreno";
 		}
-		//return "redirect:/";
-		return "creaTreno";
+		return "redirect:/";
 	}
 
 

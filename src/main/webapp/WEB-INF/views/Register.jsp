@@ -27,7 +27,7 @@
                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                   </div>
               </c:if>
-              <%-- Fine blocco alert --%>
+
 
               <p class="text-white-50 mb-5">Inserisci username e password!</p>
 

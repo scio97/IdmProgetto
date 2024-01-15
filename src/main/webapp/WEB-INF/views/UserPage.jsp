@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Importazioni di stile e script -->
+
 </head>
 <body>
 
-    <!-- Contenuto della pagina di login -->
+
     <div class="container mt-5">
         <form method="POST" action="${pageContext.request.contextPath}/login">
             <label for="username">Username:</label>
@@ -19,14 +19,14 @@
         </form>
     </div>
 
-    <!-- Navigation Bar -->
+
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <!-- Contenuto della barra di navigazione -->
+
     </nav>
 
-    <!-- Seconda barra di navigazione -->
+
     <nav class="navbar bg-body-tertiary">
-        <!-- Contenuto della seconda barra di navigazione -->
+
     </nav>
 
 </body>

@@ -8,41 +8,41 @@
     <!-- Aggiungi altri stili CSS se necessario -->
     <style>
         body {
-            background-color: #f0f5f9; /* Colore sfondo più chiaro tendente al blu */
-            color: #34495e; /* Colore testo più scuro tendente al blu */
+            background-color: #f0f5f9;
+            color: #34495e;
         }
 
         .jumbotron {
-            background-color: #2980b9; /* Blu più intenso */
+            background-color: #2980b9;
             color: #ffffff;
-            margin-bottom: 20px; /* Aggiunto margine inferiore */
-            padding-bottom: 50px; /* Incrementato padding inferiore per aumentare l'altezza */
+            margin-bottom: 20px;
+            padding-bottom: 50px;
         }
 
         .btn-primary {
-            background-color: #005064; /* Blu più scuro */
-            border-color: #005064; /* Blu più scuro */
+            background-color: #005064;
+            border-color: #005064;
         }
 
         .carousel {
-            margin-bottom: 20px; /* Aggiunto margine inferiore al carosello */
+            margin-bottom: 20px;
         }
 
         .custom-card {
-            border: 1px solid rgba(0, 0, 0, 0.125); /* Colore del bordo */
-            border-radius: 10px; /* Bordi arrotondati */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombra */
-            padding: 20px; /* Aggiunto spazio interno */
-            margin-bottom: 20px; /* Aggiunto margine inferiore */
+            border: 1px solid rgba(0, 0, 0, 0.125);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
         }
 
         .custom-card:not(:last-child) {
-            margin-right: 10px; /* Aggiunto margine laterale destro solo per le cards tranne l'ultima */
+            margin-right: 10px;
         }
 
         .btn-primary:hover {
-            background-color: #003d4c; /* Blu più scuro al passaggio del mouse */
-            border-color: #003d4c; /* Blu più scuro al passaggio del mouse */
+            background-color: #003d4c;
+            border-color: #003d4c;
         }
 
         .carousel {
@@ -52,20 +52,20 @@
         .feature-icon {
             font-size: 4em;
             margin-bottom: 10px;
-            color: #00acc1; /* Blu più chiaro */
+            color: #00acc1;
         }
 
         .carousel-caption {
-            background: rgba(0, 0, 0, 0.5); /* Fondo semi-trasparente per il testo */
+            background: rgba(0, 0, 0, 0.5);
             color: #ffffff;
             padding: 10px;
         }
 
         .carousel-img {
-            max-width: 100%; /* Imposta la larghezza massima all'interno del container */
-            height: auto; /* Mantiene l'aspetto proporzionato */
-            margin: auto; /* Centra l'immagine orizzontalmente */
-            display: block; /* Impedisce la visualizzazione di altri margini orizzontali */
+            max-width: 100%;
+            height: auto;
+            margin: auto;
+            display: block;
         }
 
         .footer {
@@ -108,7 +108,6 @@
         </div>
     </div>
 
-    <!-- Carousel -->
     <div id="trainCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -156,7 +155,6 @@
                 </div>
             </div>
 
-            <!-- Aggiungi più items con immagini e descrizioni secondo necessità -->
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#trainCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>

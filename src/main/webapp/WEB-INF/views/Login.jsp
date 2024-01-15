@@ -24,31 +24,31 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            margin: auto; /* Aggiunto solo il margine auto per centrare orizzontalmente e verticalmente */
+            margin: auto;
         }
 
         label {
             display: block;
-            margin-bottom: 12px; /* Aumentato il margine inferiore */
+            margin-bottom: 12px;
             font-weight: bold;
             color: #2980b9;
         }
 
         input {
             width: 100%;
-            padding: 12px; /* Aumentato il padding */
-            margin-bottom: 20px; /* Aumentato il margine inferiore */
+            padding: 12px;
+            margin-bottom: 20px;
             box-sizing: border-box;
             border: 1px solid #bdc3c7;
-            border-radius: 6px; /* Aumentato il bordo di arrotondamento */
+            border-radius: 6px;
         }
 
         button {
             background-color: #3498db;
             color: #fff;
-            padding: 12px 20px; /* Aumentato il padding */
+            padding: 12px 20px;
             border: none;
-            border-radius: 6px; /* Aumentato il bordo di arrotondamento */
+            border-radius: 6px;
             cursor: pointer;
         }
 

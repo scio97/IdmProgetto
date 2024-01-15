@@ -69,12 +69,12 @@ th, td {
 }
 
 th {
-	background-color: #1f4566; /* Colore più scuro per la prima riga */
+	background-color: #1f4566;
 }
 
 tr:hover {
 	color: #fff;
-	background-color: #2d6187; /* Colore più scuro durante l'hover */
+	background-color: #2d6187;
 }
 
 .footer {
@@ -130,7 +130,6 @@ tr:hover {
 	<% for (Character carattere : (List<Character>) request.getAttribute("caratteri")) { %>
 	<!-- Esegui un'operazione diversa per ogni carattere -->
 
-	<%-- Stampa un'immagine in base al valore del carattere con dimensioni in percentuale --%>
 	<% if (carattere == 'H') { %>
 	<img src="/images/H.png" alt="Immagine H" style="width: 15%;">
 	<% } else if (carattere == 'C') { %>

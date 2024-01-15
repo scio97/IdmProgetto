@@ -159,7 +159,7 @@ body {
 			<div class="treno-images">
 				<!-- Logica per mostrare le immagini basate sui caratteri -->
 				<% for (char carattere : treno.getInputCreazione().toCharArray()) { %>
-				<!-- Aggiungi logica per mostrare le immagini qui usando il carattere -->
+
 				<% if (carattere == 'H') { %>
 				<img src="/images/H.png" alt="Immagine H" style="width: 15%;">
 				<% } else if (carattere == 'C') { %>

@@ -5,8 +5,8 @@
     <title>Crea Treno</title>
     <style>
         body {
-            background-color: #f0f5f9; /* Sfondo più chiaro tendente al blu */
-            color: #34495e; /* Colore testo più scuro tendente al blu */
+            background-color: #f0f5f9;
+            color: #34495e;
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
@@ -27,7 +27,7 @@
             font-size: 24px;
             font-weight: bold;
             margin-bottom: 10px;
-            color: #2980b9; /* Blu più intenso */
+            color: #2980b9;
         }
 
         .subtitle {
@@ -45,24 +45,24 @@
 
         .box-container {
             display: flex;
-            gap: 20px; /* Aggiunto il gap tra i box */
+            gap: 20px;
             justify-content: space-between;
             margin-bottom: 40px;
             padding: 20px;
-            background-color: #ecf0f3; /* Sfondo più chiaro tendente al blu */
+            background-color: #ecf0f3;
             border-radius: 8px;
             box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
         }
 
         .box {
-            flex: 1; /* Occupa tutto lo spazio disponibile */
-            max-width: 200px; /* Larghezza massima del box */
+            flex: 1;
+            max-width: 200px;
             text-align: center;
             padding: 10px;
-            border: 1px solid #bdc3c7; /* Colore bordo tendente al blu */
+            border: 1px solid #bdc3c7;
             border-radius: 4px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: #dfe6e9; /* Colore sfondo più chiaro tendente al blu */
+            background-color: #dfe6e9;
         }
 
         .box img {
@@ -99,7 +99,7 @@
             display: block;
             margin-bottom: 8px;
             font-weight: bold;
-            color: #2980b9; /* Blu più intenso */
+            color: #2980b9;
         }
 
         input {
@@ -107,12 +107,12 @@
             padding: 8px;
             margin-bottom: 16px;
             box-sizing: border-box;
-            border: 1px solid #bdc3c7; /* Colore bordo tendente al blu */
+            border: 1px solid #bdc3c7;
             border-radius: 4px;
         }
 
         button {
-            background-color: #3498db; /* Blu più vivido */
+            background-color: #3498db;
             color: #fff;
             padding: 10px 15px;
             border: none;
@@ -121,7 +121,7 @@
         }
 
         button:hover {
-            background-color: #2980b9; /* Blu più intenso al passaggio del mouse */
+            background-color: #2980b9;
         }
 
         .footer {
