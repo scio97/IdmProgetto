@@ -59,6 +59,7 @@
     <div class="navbar-left">
         <a href="${pageContext.request.contextPath}/">Home</a>
         <a href="${pageContext.request.contextPath}/creaTreno">Crea un treno!</a>
+        <a href="${pageContext.request.contextPath}/listaTreni">Treni da tutto il mondo!</a>
     </div>
     <div class="navbar-right">
         <a href="${pageContext.request.contextPath}/<%= urlAccesso %>"><%= txtAccesso %></a>

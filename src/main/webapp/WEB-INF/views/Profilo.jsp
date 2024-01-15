@@ -147,10 +147,6 @@ body {
 			<h3>Dettagli Treno</h3>
 
 			<div class="treno-info">
-				<label>ID:</label> <span><%= treno.getId() %></span>
-			</div>
-
-			<div class="treno-info">
 				<label>Creazione:</label> <span><%= treno.getInputCreazione() %></span>
 			</div>
 

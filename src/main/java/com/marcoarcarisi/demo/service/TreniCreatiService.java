@@ -1,6 +1,7 @@
 package com.marcoarcarisi.demo.service;
 
 import com.marcoarcarisi.demo.dao.TreniCreatiDAO;
+import com.marcoarcarisi.demo.entity.StandardString;
 import com.marcoarcarisi.demo.entity.TreniCreati;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,6 +46,15 @@ public class TreniCreatiService {
     public List<TreniCreati> getTreniByUtente(String username) {
         try {
             return treniCreatiDAO.getTreniByUtente(username);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    public List<TreniCreati> getTreni() {
+        try {
+            List<TreniCreati> s=treniCreatiDAO.retrieve();
+            return s;
         } catch (Exception e) {
             throw e;
         }

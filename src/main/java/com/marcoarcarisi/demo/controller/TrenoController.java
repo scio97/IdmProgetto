@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.marcoarcarisi.demo.treno.exception.TrenoException;
 import com.marcoarcarisi.demo.treno.*;
 
+import java.util.List;
+
 @Controller
 public class TrenoController {
 
@@ -65,6 +67,18 @@ public class TrenoController {
 			model.addAttribute("suggerimento", e.getSuggerimento());
 		}
 		return "mostraTreno";
+	}
+
+	@GetMapping("/listaTreni")
+	public String mostraListaTreni(Model model, HttpSession session){
+		String username = (String) session.getAttribute("user");
+		if (username != null) {
+			List<TreniCreati> treniCreati = treniCreatiService.getTreni();
+			model.addAttribute("treniCreati", treniCreati);
+			return "ListaTreni";
+		} else {
+			return "redirect:/login";
+		}
 	}
 }
 
