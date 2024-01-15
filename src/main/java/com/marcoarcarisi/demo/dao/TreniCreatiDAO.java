@@ -53,4 +53,12 @@ public class TreniCreatiDAO  implements TreniCreatiDAOInterface{
                 .setParameter("username", username)
                 .getResultList();
     }
+
+    public List<TreniCreati> getTreniByPaese(String paese) {
+        String query = "SELECT t FROM TreniCreati t WHERE t.nazionalita = :paese";
+        return manager.createQuery(query, TreniCreati.class)
+                .setParameter("paese", paese)
+                .getResultList();
+    }
 }
+

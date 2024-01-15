@@ -56,6 +56,7 @@
         <a href="${pageContext.request.contextPath}/">Home</a>
         <a href="${pageContext.request.contextPath}/creaTreno">Crea un treno!</a>
         <a href="${pageContext.request.contextPath}/listaTreni">Treni da tutto il mondo!</a>
+        <a href="${pageContext.request.contextPath}/cercaTreni">Ricerca treno</a>
     </div>
     <div class="navbar-right">
         <a href="${pageContext.request.contextPath}/<%= urlAccesso %>"><%= txtAccesso %></a>

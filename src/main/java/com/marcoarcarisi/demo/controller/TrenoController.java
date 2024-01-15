@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.marcoarcarisi.demo.treno.exception.TrenoException;
@@ -82,5 +83,17 @@ public class TrenoController {
 			return "redirect:/login";
 		}
 	}
+	@GetMapping("/cercaTreni")
+	public String cercaTreni(Model model, HttpSession session){
+		return "CercaTreni";
+	}
+
+	@RequestMapping("/risultatoRicerca")
+	public String ricercaTreni(@RequestParam String paese, Model model){
+		List<TreniCreati> treni = treniCreatiService.getTreniByPaese(paese);
+		model.addAttribute("treniTrovati",treni);
+		return "risultatoRicerca";
+	}
+
 }
 

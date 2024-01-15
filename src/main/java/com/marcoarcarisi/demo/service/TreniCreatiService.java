@@ -41,9 +41,19 @@ public class TreniCreatiService {
         }
     }
 
+
+
     public List<TreniCreati> getTreniByUtente(String username) {
         try {
             return treniCreatiDAO.getTreniByUtente(username);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    public List<TreniCreati> getTreniByPaese(String paese) {
+        try {
+            return treniCreatiDAO.getTreniByPaese(paese);
         } catch (Exception e) {
             throw e;
         }
