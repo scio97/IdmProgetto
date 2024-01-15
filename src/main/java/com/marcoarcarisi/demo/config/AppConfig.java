@@ -52,7 +52,7 @@ public class AppConfig {
     }
 
 
-    @Bean
+    @Bean (name = "algoritmo")
     public Algoritmo getAlgoritmo(){
         Algoritmo contains = getContains();
         Algoritmo contained = getContained();

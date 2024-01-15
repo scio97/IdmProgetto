@@ -13,6 +13,7 @@ import java.util.List;
 @Transactional
 @Service
 public class StandardStringService{
+
     @Autowired
     private StandardStringDAO standardStringDAO;
 
