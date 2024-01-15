@@ -8,41 +8,42 @@
     <!-- Aggiungi altri stili CSS se necessario -->
     <style>
         body {
-            background-color: #f0f5f9;
-            color: #34495e;
+            background-color: #f0f5f9; /* Colore sfondo più chiaro tendente al blu */
+            color: #34495e; /* Colore testo più scuro tendente al blu */
+            overflow-x: hidden;
         }
 
         .jumbotron {
-            background-color: #2980b9;
+            background-color: #2980b9; /* Blu più intenso */
             color: #ffffff;
-            margin-bottom: 20px;
-            padding-bottom: 50px;
+            margin-bottom: 20px; /* Aggiunto margine inferiore */
+            padding-bottom: 50px; /* Incrementato padding inferiore per aumentare l'altezza */
         }
 
         .btn-primary {
-            background-color: #005064;
-            border-color: #005064;
+            background-color: #005064; /* Blu più scuro */
+            border-color: #005064; /* Blu più scuro */
         }
 
         .carousel {
-            margin-bottom: 20px;
+            margin-bottom: 20px; /* Aggiunto margine inferiore al carosello */
         }
 
         .custom-card {
-            border: 1px solid rgba(0, 0, 0, 0.125);
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-bottom: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.125); /* Colore del bordo */
+            border-radius: 10px; /* Bordi arrotondati */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombra */
+            padding: 20px; /* Aggiunto spazio interno */
+            margin-bottom: 20px; /* Aggiunto margine inferiore */
         }
 
         .custom-card:not(:last-child) {
-            margin-right: 10px;
+            margin-right: 10px; /* Aggiunto margine laterale destro solo per le cards tranne l'ultima */
         }
 
         .btn-primary:hover {
-            background-color: #003d4c;
-            border-color: #003d4c;
+            background-color: #003d4c; /* Blu più scuro al passaggio del mouse */
+            border-color: #003d4c; /* Blu più scuro al passaggio del mouse */
         }
 
         .carousel {
@@ -52,31 +53,22 @@
         .feature-icon {
             font-size: 4em;
             margin-bottom: 10px;
-            color: #00acc1;
+            color: #00acc1; /* Blu più chiaro */
         }
 
         .carousel-caption {
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.5); /* Fondo semi-trasparente per il testo */
             color: #ffffff;
             padding: 10px;
         }
 
         .carousel-img {
-            max-width: 100%;
-            height: auto;
-            margin: auto;
-            display: block;
+            max-width: 100%; /* Imposta la larghezza massima all'interno del container */
+            height: auto; /* Mantiene l'aspetto proporzionato */
+            margin: auto; /* Centra l'immagine orizzontalmente */
+            display: block; /* Impedisce la visualizzazione di altri margini orizzontali */
         }
 
-        .footer {
-            background-color: #2980b9;
-            color: #fff;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: auto;
-            text-align: center;
-        }
     </style>
 </head>
 <body>
@@ -108,6 +100,7 @@
         </div>
     </div>
 
+    <!-- Carousel -->
     <div id="trainCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -155,6 +148,7 @@
                 </div>
             </div>
 
+            <!-- Aggiungi più items con immagini e descrizioni secondo necessità -->
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#trainCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -167,9 +161,7 @@
     </div>
 </div>
 
-<div class="footer">
-    <p>&copy; 2024 Trenino. Tutti i diritti riservati.</p>
-</div>
+<%@ include file="footer.jsp" %>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -1,4 +1,5 @@
 <%@ page session="true" %>
+
 <%
     String username, url, txtAccesso, urlAccesso;
     if(session != null && session.getAttribute("user") != null){
@@ -16,18 +17,7 @@
     }
 %>
 
-
 <style>
-    body {
-        background-color: #f0f5f9;
-        color: #34495e;
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    }
 
     .navbar {
         display: flex;
@@ -46,6 +36,11 @@
         padding: 10px 15px;
         border-radius: 4px;
         transition: background-color 0.3s, color 0.3s;
+        margin-right: 15px;
+    }
+
+    .navbar-right a:first-child {
+        margin-right: auto; /* Aggiunto per centrare il pulsante "Registrati" rispetto a destra */
     }
 
     .navbar a:hover,
@@ -53,6 +48,7 @@
         background-color: #fff;
         color: #2980b9;
     }
+
 </style>
 
 <nav class="navbar">

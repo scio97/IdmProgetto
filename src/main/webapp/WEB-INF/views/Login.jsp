@@ -2,10 +2,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <title>Login</title>
     <%@ include file="navBar.jsp" %>
 
     <style>
+
         body {
             background-color: #f0f5f9;
             color: #34495e;
@@ -15,6 +17,7 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
         .form-container {
@@ -24,31 +27,31 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            margin: auto;
+            margin: auto; /* Aggiunto solo il margine auto per centrare orizzontalmente e verticalmente */
         }
 
         label {
             display: block;
-            margin-bottom: 12px;
+            margin-bottom: 12px; /* Aumentato il margine inferiore */
             font-weight: bold;
             color: #2980b9;
         }
 
         input {
             width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
+            padding: 12px; /* Aumentato il padding */
+            margin-bottom: 20px; /* Aumentato il margine inferiore */
             box-sizing: border-box;
             border: 1px solid #bdc3c7;
-            border-radius: 6px;
+            border-radius: 6px; /* Aumentato il bordo di arrotondamento */
         }
 
         button {
             background-color: #3498db;
             color: #fff;
-            padding: 12px 20px;
+            padding: 12px 20px; /* Aumentato il padding */
             border: none;
-            border-radius: 6px;
+            border-radius: 6px; /* Aumentato il bordo di arrotondamento */
             cursor: pointer;
         }
 
@@ -56,15 +59,13 @@
             background-color: #2980b9;
         }
 
-        .footer {
-            background-color: #2980b9;
-            color: #fff;
-            padding: 10px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-top: auto;
-            text-align: center;
+        #error-message {
+          color: #c0392b; /* Colore del testo rosso per evidenziare l'errore */
+          font-size: 14px; /* Dimensione del testo */
+          margin-top: 10px; /* Spazio superiore aggiunto per separare dal resto del form */
         }
+
+
     </style>
 </head>
 
@@ -73,6 +74,11 @@
     <div class="form-container">
         <h2>Login</h2>
         <form action="${pageContext.request.contextPath}/login" method="post">
+
+            <div id="error-message" class="error-message">
+                <p>${error}</p>
+            </div>
+
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
 
@@ -84,9 +90,7 @@
         <p>Non sei ancora registrato? <a href="${pageContext.request.contextPath}/register">Registrati</a></p>
     </div>
 
-    <div class="footer">
-        <p>&copy; 2024 Trenino. Tutti i diritti riservati.</p>
-    </div>
+    <%@ include file="footer.jsp" %>
 
 </body>
 

@@ -1,69 +1,98 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
 
-    <title>Registrazione</title>
-    <%@ include file="navBar.jsp" %>
-    
-</head>
+  <head>
 
-<body>
+      <title>Registrazione</title>
+      <%@ include file="navBar.jsp" %>
+      
+      <style>
+      
+        body {
+            background-color: #f0f5f9;
+            color: #34495e;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
 
-<section class="vh-100 gradient-custom">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card bg-dark text-white" style="border-radius: 1rem;">
-          <div class="card-body p-5 text-center">
+        .form-container {
+            max-width: 500px;
+            background-color: #ecf0f3;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin: auto; /* Aggiunto solo il margine auto per centrare orizzontalmente e verticalmente */
+        }
 
-            <div class="mb-md-5 mt-md-4 pb-5">
+        label {
+            display: block;
+            margin-bottom: 12px; /* Aumentato il margine inferiore */
+            font-weight: bold;
+            color: #2980b9;
+        }
 
-              <h2 class="fw-bold mb-2 text-uppercase">Register</h2>
+        input {
+            width: 100%;
+            padding: 12px; /* Aumentato il padding */
+            margin-bottom: 20px; /* Aumentato il margine inferiore */
+            box-sizing: border-box;
+            border: 1px solid #bdc3c7;
+            border-radius: 6px; /* Aumentato il bordo di arrotondamento */
+        }
 
-              <c:if test="${not empty error}">
-                  <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                      <strong>${error}</strong>
-                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                  </div>
-              </c:if>
+        button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 12px 20px; /* Aumentato il padding */
+            border: none;
+            border-radius: 6px; /* Aumentato il bordo di arrotondamento */
+            cursor: pointer;
+        }
 
+        button:hover {
+            background-color: #2980b9;
+        }
 
-              <p class="text-white-50 mb-5">Inserisci username e password!</p>
+        #error-message {
+          color: #c0392b; /* Colore del testo rosso per evidenziare l'errore */
+          font-size: 14px; /* Dimensione del testo */
+          margin-top: 10px; /* Spazio superiore aggiunto per separare dal resto del form */
+        }
 
-            <form action="${pageContext.request.contextPath}/register" method="post">
-                  <div class="form-outline form-white mb-4">
-                    <label>Username: <input type="text" name="username" required /></label><br/>
-                  </div>
+      </style>
+  </head>
 
-                  <div class="form-outline form-white mb-4">
-                    <label>Password: <input type="password" name="password" required /></label><br/>
-                  </div>
+  <body>
 
-                  <button class="btn btn-outline-light btn-lg px-5" type="submit">Register</button>
-             </form>
+      <div class="form-container">
+          <h2>Registrati</h2>
+          <form action="${pageContext.request.contextPath}/register" method="post">
 
-              <div class="d-flex justify-content-center text-center mt-4 pt-1">
-                <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
-                <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
-                <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
-              </div>
-
+            <div id="error-message" class="error-message">
+                <p>${error}</p>
             </div>
 
-            <div>
-                  <form action="${pageContext.request.contextPath}/login" method="get">
-                      <label>Sei già registrato? : <input type="SUBMIT" value = "Vai al login!" /></label><br/>
-                  </form>
-              </p>
-            </div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
 
-          </div>
-        </div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Registrati</button>
+
+          </form>
+          <p>Sei già registrato? <a href="${pageContext.request.contextPath}/login">Login</a></p>
       </div>
-    </div>
-  </div>
-</section>
 
-</body>
+      <%@ include file="footer.jsp" %>
+
+  </body>
+
 </html>

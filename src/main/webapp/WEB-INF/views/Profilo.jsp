@@ -19,6 +19,7 @@ body {
             background-color: #ecf0f1;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
         }
 
         .navbar {
@@ -100,17 +101,6 @@ body {
 	color: #e74c3c;
 }
 
-.footer {
-	background-color: #2980b9;
-	color: #fff;
-	padding: 10px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	text-align: center;
-	margin: 0;
-}
 </style>
 </head>
 <body>
@@ -127,6 +117,7 @@ body {
             <% } else { %>
                 <a href="${pageContext.request.contextPath}/login">Login</a>
                 <a href="${pageContext.request.contextPath}/register">Registrati</a>
+                <a href="${pageContext.request.contextPath}/listaTreni">Treni da tutto il mondo!</a>
             <% } %>
         </div>
     </div>
@@ -189,9 +180,7 @@ body {
         }
     %>
 	</div>
-	<div class="footer">
-		<p>&copy; 2024 Trenino. Tutti i diritti riservati.</p>
-	</div>
+    <%@ include file="footer.jsp" %>
 
 </body>
 </html>

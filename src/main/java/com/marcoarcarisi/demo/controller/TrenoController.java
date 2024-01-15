@@ -34,7 +34,7 @@ public class TrenoController {
 		if(user!=null){
 			return "creaTreno";
 		}
-		return "redirect:/";
+		return "redirect:/login";
 	}
 
 
