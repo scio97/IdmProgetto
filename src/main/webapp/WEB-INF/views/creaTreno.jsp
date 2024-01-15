@@ -5,8 +5,8 @@
     <title>Crea Treno</title>
     <style>
         body {
-            background-color: #f0f5f9; /* Sfondo più chiaro tendente al blu */
-            color: #34495e; /* Colore testo più scuro tendente al blu */
+            background-color: #f0f5f9;
+            color: #34495e;
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;

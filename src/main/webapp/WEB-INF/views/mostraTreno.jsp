@@ -114,6 +114,14 @@
 				<td>Stringa di input</td>
 				<td>${treno.getInput()}</td>
 			</tr>
+			<tr>
+				<td>Input paese</td>
+				<td><%= request.getAttribute("paeseInput") %></td>
+			</tr>
+			<tr>
+				<td>Paese Normalizzato</td>
+				<td><%= request.getAttribute("inputNormalizzato") %></td>
+			</tr>
 		</table>
 		<h3>Vagoni:</h3>
 
