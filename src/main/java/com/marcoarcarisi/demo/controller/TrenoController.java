@@ -69,6 +69,13 @@ public class TrenoController {
 		return "mostraTreno";
 	}
 
+
+	@PostMapping("/eliminaTrenoAdmin")
+	public String deleteTreno(@RequestParam int idTreno){
+		treniCreatiService.deleteTreno(idTreno);
+		return "redirect:/listaTreni";
+	}
+
 	@GetMapping("/listaTreni")
 	public String mostraListaTreni(Model model, HttpSession session){
 		String username = (String) session.getAttribute("user");

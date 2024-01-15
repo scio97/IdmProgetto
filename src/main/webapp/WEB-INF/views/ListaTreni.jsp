@@ -1,15 +1,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ page import="java.util.List"%>
+<%@ page import="com.marcoarcarisi.demo.entity.DatiLogin"%>
 <%@ page import="com.marcoarcarisi.demo.entity.TreniCreati"%>
 
 <%
     List<TreniCreati> treniCreati = (List<TreniCreati>) request.getAttribute("treniCreati");
     String username = (String) session.getAttribute("user");
+    DatiLogin utenteLoggato = (DatiLogin) session.getAttribute("utente");
+    String admin = "admin";
 %>
 
 <html>
 <head>
-<title>Profilo Utente</title>
+<title>Lista Treni</title>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 
@@ -137,6 +140,7 @@ body {
 			<h3>
 			</h3>
 			<p>Questi sono i treni creati dagli altri utenti:</p>
+			<p>${utenteLoggato.getRuolo()}</p>
 		</div>
 
 		<% if (treniCreati != null && !treniCreati.isEmpty()) { %>
@@ -173,6 +177,12 @@ body {
 				<% } %>
 
 			</div>
+			    <% if (utenteLoggato.getRuolo().equals(admin)) { %>
+                    <form method="post" action="/eliminaTrenoAdmin">
+                        <input type="hidden" name="idTreno" value="<%= treno.getId() %>">
+                        <button type="submit" class="btn btn-danger">Elimina Treno</button>
+                    </form>
+                <% } %>
 		</div>
 		<% } %>
 		<% } else { %>

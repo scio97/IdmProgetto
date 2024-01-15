@@ -79,9 +79,10 @@ public class UserController {
     @PostMapping("/login")
     public String processLogin(@RequestParam String username, String password, Model model, HttpSession session) {
         try {
-            DatiLogin user = new DatiLogin(username,password,"base");
             if(service.effettuaAccesso(username,password)==true){
+                DatiLogin user = new DatiLogin(username,password,service.findByUserName(username).getRuolo());
                 session.setAttribute("user",user.getUserName());
+                session.setAttribute("utente",user);
                 return "Home";
             } else {
                 model.addAttribute("error", "Credenziali non valide. Riprova.");
