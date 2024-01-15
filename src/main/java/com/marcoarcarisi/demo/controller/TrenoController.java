@@ -45,15 +45,18 @@ public class TrenoController {
 			Treno choochoo = new Treno(input);
 			model.addAttribute("treno", choochoo);
 			model.addAttribute("stringaTreno",input);
+			model.addAttribute("paeseInput",nazionalita);
 
 			String utente = (String) session.getAttribute("user");
 			if (utente != null) {
 				String normal = algoritmo.check(nazionalita,stringService.getListaString());
 				if(normal!= null) {
+					model.addAttribute("inputNormalizzato",normal);
 					TreniCreati treno = new TreniCreati(utente, input, normal);
 					treniCreatiService.insertTrenoCreato(treno);
 				}
 				else{
+					model.addAttribute("inputNormalizzato","paese non riconosciuto");
 					TreniCreati treno = new TreniCreati(utente, input, "paese non riconosciuto");
 					treniCreatiService.insertTrenoCreato(treno);
 				}
@@ -90,10 +93,13 @@ public class TrenoController {
 
 	@RequestMapping("/risultatoRicerca")
 	public String ricercaTreni(@RequestParam String paese, Model model){
-		List<TreniCreati> treni = treniCreatiService.getTreniByPaese(paese);
-		model.addAttribute("treniTrovati",treni);
-		return "risultatoRicerca";
+		String normal = algoritmo.check(paese,stringService.getListaString());
+		if(normal != null){
+			List<TreniCreati> treni = treniCreatiService.getTreniByPaese(normal);
+			model.addAttribute("treniTrovati",treni);
+			return "risultatoRicerca";
+		}
+		return "redirect:/cercaTreni";
 	}
-
 }
 
