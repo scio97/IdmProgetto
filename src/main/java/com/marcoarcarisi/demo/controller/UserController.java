@@ -34,13 +34,15 @@ public class UserController {
     public String processRegistration(@RequestParam String username,String password, Model model,HttpSession session) {
         try {
             DatiLogin user = new DatiLogin(username,password,"base");
-            boolean inserito=service.insertDato(user);
-            if(inserito){
+            int inserito=service.insertDato(user);
+            if(inserito == 0){
                 session.setAttribute("user",user.getUserName());
                 return "Home";
-            } else {
-                model.addAttribute("error", "Credenziali non valide per la registrazione");
-                model.addAttribute("alertClass", "alert-danger"); // Aggiungi un attributo per definire la classe dell'alert
+            } else if(inserito == 1){
+                model.addAttribute("errorUsername", "L'username è già presente nel database.");
+                return "Register";
+            } else{
+                model.addAttribute("errorPassword", "Password non valida, deve contenere almeno un carattere Maiuscolo e un numero");
                 return "Register";
             }
         } catch (Exception e) {
@@ -79,14 +81,17 @@ public class UserController {
     @PostMapping("/login")
     public String processLogin(@RequestParam String username, String password, Model model, HttpSession session) {
         try {
-            if(service.effettuaAccesso(username,password)==true){
+            int accesso = service.effettuaAccesso(username,password);
+            if(accesso == 0){
                 DatiLogin user = new DatiLogin(username,password,service.findByUserName(username).getRuolo());
                 session.setAttribute("user",user.getUserName());
                 session.setAttribute("utente",user);
                 return "Home";
+            } else if (accesso == 1){
+                model.addAttribute("errorUsername", "Nome utente non valido. Riprova");
+                return "Login";
             } else {
-                model.addAttribute("error", "Credenziali non valide. Riprova.");
-                model.addAttribute("alertClass", "alert-danger"); // Aggiungi un attributo per definire la classe dell'alert
+                model.addAttribute("errorPassword", "Password non valida. Riprova.");
                 return "Login";
             }
         } catch (Exception e) {

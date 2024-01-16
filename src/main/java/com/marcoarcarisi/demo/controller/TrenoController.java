@@ -35,7 +35,7 @@ public class TrenoController {
 		if(user!=null){
 			return "creaTreno";
 		}
-		return "redirect:/login";
+		return "redirect:/login?redirect=ct";
 	}
 
 
@@ -83,7 +83,7 @@ public class TrenoController {
 			model.addAttribute("treniCreati", treniCreati);
 			return "ListaTreni";
 		} else {
-			return "redirect:/login";
+			return "redirect:/login?redirect=lt";
 		}
 	}
 	@GetMapping("/cercaTreni")

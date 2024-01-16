@@ -14,7 +14,7 @@ public class DatiLoginService {
 	@Autowired
 	private DatiLoginDAO datiLoginDAO;
 
-	public boolean insertDato(DatiLogin dato) {
+	public int insertDato(DatiLogin dato) {
 		try {
 			// Verifica se l'username è già presente
 			if (findByUserName(dato.getUserName()) == null) {
@@ -22,14 +22,14 @@ public class DatiLoginService {
 				if(checkPassword(dato.getPassword())) {
 					datiLoginDAO.create(dato);
 					System.out.println("Dato inserito con successo.");
-					return true;
+					return 0;
 				}  else {
 					System.out.println("Password non valida, deve contenere almeno un carattere Maiuscolo e un numero");
-					return false;
+					return 2;
 				}
 			}else {
 				System.out.println("L'username è già presente nel database.");
-				return false;
+				return 1;
 			}
 		} catch (Exception e) {
 			throw e;
@@ -93,18 +93,19 @@ public class DatiLoginService {
 		}
 	}
 
-	public boolean effettuaAccesso(String user, String pass) {
+	public int effettuaAccesso(String user, String pass) {
 		DatiLogin temp = datiLoginDAO.findByUserName(user.toLowerCase());
 		if(temp!=null) {
 			if(temp.getPassword().equals(pass)) {
 				System.out.println("Benvenuto "+user);
-				return true;
+				return 0;
 			} else {
 				System.out.println("Password errata!");
+				return 2;
 			}
 		} else {
 			System.out.println("UserName errato!");
 		} 
-		return false;
+		return 1;
 	}
 }
