@@ -144,7 +144,10 @@ body {
 			</div>
 
 			<div class="treno-info">
-				<label>Paese di provenienza:</label> <span><%= treno.getNazionalita() %></span>
+				<label>Paese di provenienza:</label>
+				 <span>
+				    <%= treno.getNazionalita() %></span>
+				    <img src="https://flagsapi.com/<%=treno.getCodicepaese()%>/shiny/32.png" alt="Bandiera">
 			</div>
 
 			<div class="treno-images">

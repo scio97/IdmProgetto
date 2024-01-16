@@ -4,6 +4,7 @@ import com.marcoarcarisi.demo.entity.StandardString;
 import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 
@@ -47,5 +48,15 @@ public class StandardStringDAO implements StandardStringDaoInterface{
     @Override
     public StandardString findById(int id){
         return manager.find(StandardString.class,id);
+    }
+
+    public StandardString findByPaese(String paese) {
+        TypedQuery<StandardString> query = manager.createQuery(
+                "SELECT s FROM StandardString s WHERE s.valore = :paese", StandardString.class);
+        query.setParameter("paese", paese);
+
+        List<StandardString> results = query.getResultList();
+
+        return results.isEmpty() ? null : results.get(0);
     }
 }

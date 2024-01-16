@@ -9,8 +9,12 @@ public class StandardString {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private int id;
+
     @Column
     private String valore;
+
+    @Column
+    private String codice_paese;
 
     public StandardString() {}
 
@@ -33,4 +37,8 @@ public class StandardString {
     public void setValore(String valore) {
         this.valore = valore;
     }
+
+    public String getCodice_paese() {return codice_paese;}
+
+    public void setCodice_paese(String codice_paese) {this.codice_paese = codice_paese;}
 }
