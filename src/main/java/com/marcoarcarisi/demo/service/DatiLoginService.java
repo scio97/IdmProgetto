@@ -2,6 +2,7 @@ package com.marcoarcarisi.demo.service;
 
 import com.marcoarcarisi.demo.dao.DatiLoginDAO;
 import com.marcoarcarisi.demo.entity.DatiLogin;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,9 @@ public class DatiLoginService {
 			if (findByUserName(dato.getUserName()) == null) {
 				// Verifica la password 
 				if(checkPassword(dato.getPassword())) {
-					datiLoginDAO.create(dato);
+					String hashedPassword = BCrypt.hashpw(dato.getPassword(), BCrypt.gensalt());
+					DatiLogin user = new DatiLogin(dato.getUserName(), hashedPassword, dato.getRuolo());
+					datiLoginDAO.create(user);
 					System.out.println("Dato inserito con successo.");
 					return 0;
 				}  else {
@@ -79,7 +82,8 @@ public class DatiLoginService {
 			if (checkPassword(pass)) {
 				DatiLogin temp = datiLoginDAO.findByUserName(user.toLowerCase());
 				if (temp!=null) {
-					temp.setPassword(pass);
+					String hashedPassword = BCrypt.hashpw(pass, BCrypt.gensalt());
+					temp.setPassword(hashedPassword);
 					datiLoginDAO.update(temp);
 					System.out.println("Password modificata con successo!");
 				} else {
@@ -96,7 +100,7 @@ public class DatiLoginService {
 	public int effettuaAccesso(String user, String pass) {
 		DatiLogin temp = datiLoginDAO.findByUserName(user.toLowerCase());
 		if(temp!=null) {
-			if(temp.getPassword().equals(pass)) {
+			if(BCrypt.checkpw(pass, temp.getPassword())){
 				System.out.println("Benvenuto "+user);
 				return 0;
 			} else {
