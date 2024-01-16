@@ -52,12 +52,12 @@ public class TrenoController {
 				String normal = algoritmo.check(nazionalita,stringService.getListaString());
 				if(normal!= null) {
 					model.addAttribute("inputNormalizzato",normal);
-					TreniCreati treno = new TreniCreati(utente, input, normal);
+					TreniCreati treno = new TreniCreati(utente, input, normal,stringService.findByPaese(normal).getCodice_paese());
 					treniCreatiService.insertTrenoCreato(treno);
 				}
 				else{
 					model.addAttribute("inputNormalizzato","paese non riconosciuto");
-					TreniCreati treno = new TreniCreati(utente, input, "paese non riconosciuto");
+					TreniCreati treno = new TreniCreati(utente, input, "paese non riconosciuto",null);
 					treniCreatiService.insertTrenoCreato(treno);
 				}
 			}

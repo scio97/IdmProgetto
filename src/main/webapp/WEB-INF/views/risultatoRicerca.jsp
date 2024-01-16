@@ -33,9 +33,12 @@
                             <label>Creazione:</label> <span><%= treno.getInputCreazione() %></span>
                         </div>
 
-                        <div class="treno-info">
-                            <label>Paese di provenienza:</label> <span><%= treno.getNazionalita() %></span>
-                        </div>
+                <div class="treno-info">
+                    <label>Paese di provenienza:</label>
+                     <span>
+                        <%= treno.getNazionalita() %></span>
+                        <img src="https://flagsapi.com/<%=treno.getCodicepaese()%>/shiny/32.png" alt="Bandiera">
+                </div>
 
                         <div class="treno-images">
                             <!-- Logica per mostrare le immagini basate sui caratteri -->

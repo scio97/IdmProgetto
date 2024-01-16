@@ -18,13 +18,21 @@ public class TreniCreati {
     @Column
     private String nazionalita;
 
+    @Column
+    private String codicepaese;
+
     public TreniCreati() {}
 
-    public TreniCreati(String user, String inputCreazione, String nazionalita) {
+    public TreniCreati(String user, String inputCreazione, String nazionalita,String codicepaese) {
         this.user = user;
         this.inputCreazione = inputCreazione;
         this.nazionalita = nazionalita;
+        this.codicepaese = codicepaese;
     }
+
+    public String getCodicepaese() {return codicepaese;}
+
+    public void setCodicepaese(String codicepaese) {this.codicepaese = codicepaese;}
 
     public int getId() {
         return id;

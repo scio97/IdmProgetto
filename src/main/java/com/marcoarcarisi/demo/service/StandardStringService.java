@@ -2,6 +2,7 @@ package com.marcoarcarisi.demo.service;
 
 
 import com.marcoarcarisi.demo.dao.StandardStringDAO;
+import com.marcoarcarisi.demo.entity.DatiLogin;
 import com.marcoarcarisi.demo.entity.StandardString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,24 @@ public class StandardStringService{
         try {
             List<StandardString> s=standardStringDAO.retrieve();
             return s;
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    public StandardString findByPaese(String paese) {
+        try {
+            StandardString temp= standardStringDAO.findByPaese(paese);
+            return temp;
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    public String getCodicePaese(String paese){
+        try {
+            StandardString s=standardStringDAO.findByPaese(paese);
+            return s.getCodice_paese();
         } catch (Exception e) {
             throw e;
         }
