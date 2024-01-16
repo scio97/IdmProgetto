@@ -1,0 +1,92 @@
+body {
+    background-color: #f0f5f9;
+    color: #34495e;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #2980b9;
+    padding: 20px;
+}
+
+.tabellaTreno {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #93c0de;
+    color: #fff;
+    border-collapse: collapse;
+    width: calc(100% - 40px);
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    transition: background-color 0.3s;
+}
+
+th {
+    background-color: #5d7387;
+}
+
+tr:hover {
+    color: #fff;
+    background-color: #65a7d6;
+}
+
+div.title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #2980b9;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.image-container img {
+    width: 15%;
+    max-width: 100%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.error-container{
+    max-width: 800px;
+    margin: 30px auto 30px;
+    padding: 30px;
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.error-title{
+    font-size: 30px;
+    color: rgb(150, 0, 0);
+}
+
+.error-subtitle{
+    font-size: 20px;
+    color: rgb(100, 0, 0);
+}

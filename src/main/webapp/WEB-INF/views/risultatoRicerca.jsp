@@ -7,47 +7,59 @@
 %>
 
 <html>
-<head>
-    <title>Risultato Ricerca</title>
-    <!-- Aggiungi qui eventuali importazioni di fogli di stile o script JS -->
-</head>
-<body>
+    <head>
 
-    <h2>Risultato Ricerca Treni</h2>
+        <title>Risultato Ricerca</title>
 
-    <% if (treniRicerca != null && !treniRicerca.isEmpty()) { %>
-        <% for (TreniCreati treno : treniRicerca) { %>
-            <div class="treno-details">
-                <h3>Dettagli Treno</h3>
+        <%@ include file="navBar.jsp" %>
 
-                <div class="treno-info">
-                    <label>Creazione:</label> <span><%= treno.getInputCreazione() %></span>
-                </div>
+        <style>
+			<%@ include file="css/risultatoRicerca.css" %>
+		</style>
 
-                <div class="treno-info">
-                    <label>Paese di provenienza:</label> <span><%= treno.getNazionalita() %></span>
-                </div>
+    </head>
+    <body>
 
-                <div class="treno-images">
-                    <!-- Logica per mostrare le immagini basate sui caratteri -->
-                    <% for (char carattere : treno.getInputCreazione().toCharArray()) { %>
-                        <!-- Aggiungi logica per mostrare le immagini qui usando il carattere -->
-                        <% if (carattere == 'H') { %>
-                            <img src="/images/H.png" alt="Immagine H" style="width: 15%;">
-                        <% } else if (carattere == 'C') { %>
-                            <img src="/images/C.png" alt="Immagine C" style="width: 10%;">
-                        <% } else if (carattere == 'P') { %>
-                            <img src="/images/P.png" alt="Immagine P" style="width: 10%;">
-                        <% } else if (carattere == 'R') { %>
-                            <img src="/images/R.png" alt="Immagine R" style="width: 8%;">
-                        <% } %>
-                    <% } %>
-                </div>
-            </div>
-        <% } %>
-    <% } else { %>
-        <p>Nessun treno trovato per la ricerca.</p>
-    <% } %>
+        <div class="container">
 
-</body>
+            <div class="welcome-message">Risultato ricerca treni</div>
+
+            <% if (treniRicerca != null && !treniRicerca.isEmpty()) { %>
+                <% for (TreniCreati treno : treniRicerca) { %>
+                    <div class="treno-details">
+                        <h3>Dettagli Treno</h3>
+
+                        <div class="treno-info">
+                            <label>Creazione:</label> <span><%= treno.getInputCreazione() %></span>
+                        </div>
+
+                        <div class="treno-info">
+                            <label>Paese di provenienza:</label> <span><%= treno.getNazionalita() %></span>
+                        </div>
+
+                        <div class="treno-images">
+                            <!-- Logica per mostrare le immagini basate sui caratteri -->
+                            <% for (char carattere : treno.getInputCreazione().toCharArray()) { %>
+                                <!-- Aggiungi logica per mostrare le immagini qui usando il carattere -->
+                                <% if (carattere == 'H') { %>
+                                    <img src="/images/H.png" alt="Immagine H" style="width: 15%;">
+                                <% } else if (carattere == 'C') { %>
+                                    <img src="/images/C.png" alt="Immagine C" style="width: 10%;">
+                                <% } else if (carattere == 'P') { %>
+                                    <img src="/images/P.png" alt="Immagine P" style="width: 10%;">
+                                <% } else if (carattere == 'R') { %>
+                                    <img src="/images/R.png" alt="Immagine R" style="width: 8%;">
+                                <% } %>
+                            <% } %>
+                        </div>
+                    </div>
+                <% } %>
+            <% } else { %>
+                <p>Nessun treno trovato per la ricerca.</p>
+            <% } %>
+        </div>
+
+        <%@ include file="footer.jsp" %>
+
+    </body>
 </html>

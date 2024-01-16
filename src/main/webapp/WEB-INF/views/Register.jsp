@@ -8,7 +8,7 @@
       <%@ include file="navBar.jsp" %>
       
       <style>
-        <%@ include file="css/register.css" %>        
+        <%@ include file="css/loginRegister.css" %>        
       </style>
   </head>
 
@@ -20,13 +20,13 @@
 
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
-            <div id="errorUsername" class="errorUsername">
+            <div id="errorUsername" class="errorUsernamePassword">
                 <p>${errorUsername}</p>
             </div>
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
-            <div id="errorUsername" class="errorUsername">
+            <div id="errorPassword" class="errorUsernamePassword">
                 <p>${errorPassword}</p>
             </div>
 

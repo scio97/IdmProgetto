@@ -1,0 +1,85 @@
+body {
+    background-color: #f0f5f9;
+    color: #34495e;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 800px;
+    margin: 30px auto 30px;
+    padding: 30px;
+    border: 2px solid #3498db;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.welcome-message {
+    background-color: #c1d8eb;
+    color: #ffffff;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.welcome-message-title{
+    font-size: 30px;
+}
+
+.welcome-message-subtitle{
+    font-size: 20px;
+}
+
+.treno-details {
+    position: relative;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.treno-details h3 {
+    color: #3498db;
+    margin-bottom: 10px;
+}
+
+.treno-info {
+    margin-bottom: 10px;
+}
+
+.treno-info label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.treno-images img {
+    width: 15%;
+    margin-right: 5px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    position: absolute;
+    top: 35px;
+    right: 35px;
+    background-color: #3498db;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2980b9;
+}

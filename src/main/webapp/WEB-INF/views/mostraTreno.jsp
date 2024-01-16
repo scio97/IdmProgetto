@@ -21,79 +21,25 @@
 		<title>Dettagli Treno</title>
 
 		<style>
-			body {
-				background-color: #f0f5f9;
-				font-family: Arial, sans-serif;
-				margin: 0;
-				overflow-x: hidden;
-			}
-
-			h2 {
-				padding: 20px;
-				color: #333;
-			}
-
-			h3 {
-				padding: 20px;
-				font-size: 24px;
-				color: #333;
-			}
-
-			p {
-				color: #666;
-			}
-
-			.error {
-				color: #ff0000;
-			}
-
-			.suggestion {
-				color: #ff9900;
-			}
-
-			table {
-				padding: 20px;
-				background-color: #2980b9;
-				color: #fff;
-				border-collapse: collapse;
-				width: calc(100% - 40px);
-				margin: 20px;
-				border: 2px solid #ddd;
-				border-radius: 8px;
-				overflow: hidden;
-			}
-
-			th, td {
-				border: 1px solid #ddd;
-				padding: 8px;
-				text-align: left;
-				transition: background-color 0.3s;
-			}
-
-			th {
-				background-color: #1f4566; /* Colore più scuro per la prima riga */
-			}
-
-			tr:hover {
-				color: #fff;
-				background-color: #2d6187; /* Colore più scuro durante l'hover */
-			}
-
+			<%@ include file="css/mostraTreno.css" %>
 		</style>
+
 	</head>
+
 	<body>
 		<% if (request.getAttribute("errore") != null) { %>
-		<p>
-			Errore:
-			<%= request.getAttribute("errore") %></p>
-		<p>
-			Suggerimento:
-			<%= request.getAttribute("suggerimento") %></p>
+			<div class="error-container">
+				<div class="error-title">Errore: <%= request.getAttribute("errore") %></div>
+				<br>
+				<div class="error-subtitle">Suggerimento: <%= request.getAttribute("suggerimento") %></div>
+			</div>
 		<% } %>
 
 		<% if (request.getAttribute("treno") != null) { %>
-		<h2>Dettagli Treno:</h2>
-		<table>
+
+		<div class="title">Dettagli Treno:</div>
+
+		<table class="tabellaTreno">
 			<tr>
 				<th>Descrizione</th>
 				<th>Valore</th>
@@ -123,9 +69,11 @@
 				<td><%= request.getAttribute("inputNormalizzato") %></td>
 			</tr>
 		</table>
-		<h3>Vagoni:</h3>
+
+		<div class="title">Vagoni:</div>
 
 		<% if (request.getAttribute("caratteri") != null) { %>
+		<div class="image-container">
 		<% for (Character carattere : (List<Character>) request.getAttribute("caratteri")) { %>
 		<!-- Esegui un'operazione diversa per ogni carattere -->
 
@@ -141,9 +89,11 @@
 		<% } %>
 		<% } %>
 		<% } %>
+		</div>
 		<% } %>
-	</body>
 
-	<%@ include file="footer.jsp" %>
+		<%@ include file="footer.jsp" %>
+		
+	</body>
 
 </html>

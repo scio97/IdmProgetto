@@ -11,189 +11,77 @@
 %>
 
 <html>
-<head>
-<title>Lista Treni</title>
+	<head>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+		<title>Lista Treni</title>
 
-<style>
-body {
-            font-family: 'Arial', sans-serif;
-            background-color: #ecf0f1;
-            margin: 0;
-            padding: 0;
-        }
+		<%@ include file="navBar.jsp" %>
 
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            background-color: #2980b9;
-            color: white;
-            width: 100%;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+		<style>
+			<%@ include file="css/listaTreni.css" %>
+		</style>
 
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 15px;
-            border-radius: 4px;
-            transition: background-color 0.3s, color 0.3s;
-        }
+	</head>
+	
+	<body>
 
-        .navbar a:hover,
-        .navbar a:focus {
-            background-color: #fff;
-            color: #2980b9;
-        }
+		<div class="container">
+			<%
+			if (username != null) {
+			%>
+			<div class="welcome-message">
+				<h3></h3>
+				<p>Questi sono i treni creati dagli tutti gli utenti:</p>
+			</div>
 
-.container {
-	max-width: 800px;
-	margin: 20px auto;
-	padding: 20px;
-	background-color: #fff;
-	border-radius: 8px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+			<% if (treniCreati != null && !treniCreati.isEmpty()) { %>
+			<% for (TreniCreati treno : treniCreati) { %>
+			<div class="treno-details">
+				<h3>Dettagli Treno</h3>
 
-.welcome-message {
-	background-color: #3498db;
-	color: #fff;
-	padding: 15px;
-	margin-bottom: 20px;
-	border-radius: 8px;
-}
+				<div class="treno-info">
+					<label>creato da:</label> <span><%= treno.getUser() %></span>
+				</div>
 
-.treno-details {
-	border: 1px solid #ccc;
-	padding: 15px;
-	margin-bottom: 20px;
-	border-radius: 8px;
-}
+				<div class="treno-info">
+					<label>Creazione:</label> <span><%= treno.getInputCreazione() %></span>
+				</div>
 
-.treno-details h3 {
-	color: #3498db;
-	margin-bottom: 10px;
-}
+				<div class="treno-info">
+					<label>Paese di provenienza:</label> <span><%= treno.getNazionalita() %></span>
+				</div>
 
-.treno-info {
-	margin-bottom: 10px;
-}
+				<div class="treno-images">
+					<% for (char carattere : treno.getInputCreazione().toCharArray()) { %>
+						<% if (carattere == 'H') { %>
+							<img src="/images/H.png" alt="Immagine H" style="width: 15%;">
+						<% } else if (carattere == 'C') { %>
+							<img src="/images/C.png" alt="Immagine C" style="width: 10%;">
+						<% } else if (carattere == 'P') { %>
+							<img src="/images/P.png" alt="Immagine P" style="width: 10%;">
+						<% } else if (carattere == 'R') { %>
+							<img src="/images/R.png" alt="Immagine R" style="width: 8%;">
+						<% } %>
+					<% } %>
+				</div>
 
-.treno-info label {
-	font-weight: bold;
-	margin-right: 10px;
-}
-
-.treno-images img {
-	width: 15%;
-	margin-right: 5px;
-	border-radius: 8px;
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.no-treni {
-	color: #e74c3c;
-}
-
-.login-message {
-	color: #e74c3c;
-}
-
-.footer {
-	background-color: #2980b9;
-	color: #fff;
-	padding: 10px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	text-align: center;
-	margin: 0;
-}
-</style>
-</head>
-<body>
-    <div class="navbar">
-        <div class="navbar-left">
-            <a href="${pageContext.request.contextPath}/">Home</a>
-            <a href="${pageContext.request.contextPath}/creaTreno">Crea un treno!</a>
-        </div>
-        <div class="navbar-right">
-            <% if (username != null) { %>
-                <a href="${pageContext.request.contextPath}/logout">Logout</a>
-                <a href="${pageContext.request.contextPath}/profilo"><%= username %></a>
-            <% } else { %>
-                <a href="${pageContext.request.contextPath}/login">Login</a>
-                <a href="${pageContext.request.contextPath}/register">Registrati</a>
-            <% } %>
-        </div>
-    </div>
-
-	<div class="container">
-		<%
-        if (username != null) {
-    %>
-		<div class="welcome-message">
-			<h3>
-			</h3>
-			<p>Questi sono i treni creati dagli altri utenti:</p>
+				<% if (utenteLoggato.getRuolo().equals(admin)) { %>
+					<form method="post" action="/eliminaTrenoAdmin">
+						<input type="hidden" name="idTreno" value="<%= treno.getId() %>">
+						<button type="submit" class="btn btn-danger">Elimina Treno</button>
+					</form>
+				<% } %>
+			</div>
+			<% } %>
+			<% } else { %>
+			<p class="no-treni">Nessun treno creato.</p>
+			<% } %>
+			<%
+				}
+			%>
 		</div>
 
-		<% if (treniCreati != null && !treniCreati.isEmpty()) { %>
-		<% for (TreniCreati treno : treniCreati) { %>
-		<div class="treno-details">
-			<h3>Dettagli Treno</h3>
+		<%@ include file="footer.jsp" %>
 
-			<div class="treno-info">
-				<label>creato da:</label> <span><%= treno.getUser() %></span>
-			</div>
-
-			<div class="treno-info">
-				<label>Creazione:</label> <span><%= treno.getInputCreazione() %></span>
-			</div>
-
-			<div class="treno-info">
-				<label>Paese di provenienza:</label> <span><%= treno.getNazionalita() %></span>
-			</div>
-
-
-			<div class="treno-images">
-
-				<% for (char carattere : treno.getInputCreazione().toCharArray()) { %>
-
-				<% if (carattere == 'H') { %>
-				<img src="/images/H.png" alt="Immagine H" style="width: 15%;">
-				<% } else if (carattere == 'C') { %>
-				<img src="/images/C.png" alt="Immagine C" style="width: 10%;">
-				<% } else if (carattere == 'P') { %>
-				<img src="/images/P.png" alt="Immagine P" style="width: 10%;">
-				<% } else if (carattere == 'R') { %>
-				<img src="/images/R.png" alt="Immagine R" style="width: 8%;">
-				<% } %>
-				<% } %>
-
-			</div>
-			    <% if (utenteLoggato.getRuolo().equals(admin)) { %>
-                    <form method="post" action="/eliminaTrenoAdmin">
-                        <input type="hidden" name="idTreno" value="<%= treno.getId() %>">
-                        <button type="submit" class="btn btn-danger">Elimina Treno</button>
-                    </form>
-                <% } %>
-		</div>
-		<% } %>
-		<% } else { %>
-		<p class="no-treni">Nessun treno creato.</p>
-		<% } %>
-		<%
-        }
-    %>
-	</div>
-	<div class="footer">
-		<p>&copy; 2024 Trenino. Tutti i diritti riservati.</p>
-	</div>
-
-</body>
+	</body>
 </html>

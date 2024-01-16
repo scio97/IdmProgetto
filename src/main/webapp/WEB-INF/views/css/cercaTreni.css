@@ -11,8 +11,8 @@ body {
 }
 
 .form-container {
-    width: 400px; /* Imposta la larghezza desiderata */
-    margin: auto; /* Centra orizzontalmente */
+    width: 400px;
+    margin: auto;
     background-color: #ecf0f3;
     padding: 30px;
     border-radius: 8px;
@@ -22,23 +22,23 @@ body {
 
 label {
     display: block;
-    margin-bottom: 12px; /* Aumentato il margine inferiore */
+    margin-bottom: 12px;
     font-weight: bold;
     color: #2980b9;
 }
 
 input {
     width: 100%;
-    padding: 12px; /* Aumentato il padding */
+    padding: 12px;
     box-sizing: border-box;
     border: 1px solid #bdc3c7;
-    border-radius: 6px; /* Aumentato il bordo di arrotondamento */
+    border-radius: 6px;
 }
 
 button {
     background-color: #3498db;
     color: #fff;
-    padding: 12px 20px; /* Aumentato il padding */
+    padding: 12px 20px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
@@ -46,21 +46,4 @@ button {
 
 button:hover {
     background-color: #2980b9;
-}
-
-.reg-text{
-    color: #b2b2b2;
-    margin-top: 50px;
-}
-
-#errorUsername {
-  color: #c0392b;
-  font-size: 14px;
-  margin-top: 10px;
-}
-
-#errorPassword {
-  color: #c0392b;
-  font-size: 14px;
-  margin-top: 10px;
 }

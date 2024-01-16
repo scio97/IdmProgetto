@@ -1,0 +1,133 @@
+body {
+    background-color: #f0f5f9;
+    color: #34495e;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.page-container {
+    flex: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.title {
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #2980b9;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 22px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.row.text-center {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.col-md-4 {
+    flex: 0 0 calc(33.333% - 20px);
+    margin-bottom: 40px;
+    margin-right: 40px;
+    background-color: #ecf0f3;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.feature-icon {
+    font-size: 4em;
+    margin-bottom: 10px;
+    color: #00acc1;
+}
+
+.titolo-box {
+    margin-bottom: 8px;
+    font-size: 1.5em;
+    color: #2980b9;
+}
+
+.sottotitolo-box {
+    margin: 0;
+    font-size: 1em;
+    color: #555;
+}
+
+.descrizione-img{
+    margin: 0;
+    font-size: 1.5em;
+    color: #e8e8e8;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.carousel-slide {
+    display: none;
+}
+
+.carousel-slide img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+}
+
+.carousel-prev,
+.carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2em;
+    cursor: pointer;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
