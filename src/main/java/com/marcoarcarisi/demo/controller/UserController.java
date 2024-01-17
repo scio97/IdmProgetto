@@ -37,6 +37,7 @@ public class UserController {
             int inserito=service.insertDato(user);
             if(inserito == 0){
                 session.setAttribute("user",user.getUserName());
+                session.setAttribute("utente",user);
                 return "Home";
             } else if(inserito == 1){
                 model.addAttribute("errorUsername", "L'username è già presente nel database.");
