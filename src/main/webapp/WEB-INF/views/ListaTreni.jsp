@@ -29,15 +29,17 @@
 			<%
 			if (username != null) {
 			%>
-			<div class="welcome-message">
-				<h3></h3>
-				<p>Questi sono i treni creati dagli tutti gli utenti:</p>
-			</div>
+			<div class="welcome-message">Questi sono i treni creati dagli tutti gli utenti:</div>
 
 			<% if (treniCreati != null && !treniCreati.isEmpty()) { %>
 			<% for (TreniCreati treno : treniCreati) { %>
+
 			<div class="treno-details">
-				<h3>Dettagli Treno</h3>
+
+				<div class="treno-details-title">
+					<img src="https://flagsapi.com/<%=treno.getCodicepaese()%>/shiny/32.png" alt="Bandiera" class="img-flag">
+					<div class="txt-titolo-dettagli">Dettagli Treno</div>
+				</div>
 
 				<div class="treno-info">
 					<label>creato da:</label> <span><%= treno.getUser() %></span>
@@ -47,10 +49,9 @@
 					<label>Creazione:</label> <span><%= treno.getInputCreazione() %></span>
 				</div>
 
-			<div class="treno-info">
-				<label>Paese di provenienza:</label><span><%= treno.getNazionalita() %></span>
-				<img src="https://flagsapi.com/<%=treno.getCodicepaese()%>/shiny/32.png" alt="Bandiera">
-			</div>
+				<div class="treno-info">
+					<label>Paese di provenienza:</label><span><%= treno.getNazionalita() %></span>
+				</div>
 
 
 				<div class="treno-images">
@@ -73,6 +74,7 @@
 						<button type="submit" class="btn btn-danger">Elimina Treno</button>
 					</form>
 				<% } %>
+				
 			</div>
 			<% } %>
 			<% } else { %>

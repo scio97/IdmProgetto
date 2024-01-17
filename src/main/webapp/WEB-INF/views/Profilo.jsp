@@ -32,7 +32,10 @@
 			<% if (treniCreati != null && !treniCreati.isEmpty()) { %>
 			<% for (TreniCreati treno : treniCreati) { %>
 			<div class="treno-details">
-				<h3>Dettagli Treno</h3>
+				<div class="treno-details-title">
+					<img src="https://flagsapi.com/<%=treno.getCodicepaese()%>/shiny/32.png" alt="Bandiera" class="img-flag">
+					<div class="txt-titolo-dettagli">Dettagli Treno</div>
+				</div>
 
 				<div class="treno-info">
 					<label>Creazione:</label> <span><%= treno.getInputCreazione() %></span>
@@ -40,7 +43,6 @@
 
 			<div class="treno-info">
 				<label>Paese di provenienza:</label> <span><%= treno.getNazionalita() %></span>
-				<img src="https://flagsapi.com/<%=treno.getCodicepaese()%>/shiny/32.png" alt="Bandiera">
 			</div>
 
 				<div class="treno-images">
