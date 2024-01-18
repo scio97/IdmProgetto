@@ -1,5 +1,5 @@
 let currentSlide = 0;
-const intervalTime = 4000;
+const intervalTime = 6000;
 let interval;
 
 function showSlide(index) {

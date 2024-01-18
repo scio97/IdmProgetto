@@ -61,21 +61,21 @@
                 <div class="carousel-slide">
                     <img src="/images/treno3.jpg" alt="Treno 3">
                     <div class="carousel-caption">
-                        <div class="descrizione-img">Elettrotreno rapido ETR200 (1939)</div>
+                        <div class="descrizione-img">Arlecchino ETR 250 Treno rapido di lusso (1960)</div>
                     </div>
                 </div>
 
                 <div class="carousel-slide">
                     <img src="/images/treno4.jpg" alt="Treno 4">
                     <div class="carousel-caption">
-                        <div class="descrizione-img">Arlecchino ETR 250 Treno rapido di lusso (1960)</div>
+                        <div class="descrizione-img">Elettrotreno rapido ETR200 (1939)</div>
                     </div>
                 </div>
 
                 <div class="carousel-slide">
                     <img src="/images/treno5.jpg" alt="Treno 5">
                     <div class="carousel-caption">
-                        <div class="descrizione-img">Locomotiva elettrica E656 (1975)</div>
+                        <div class="descrizione-img">Frecciarossa 1000 (2015)</div>
                     </div>
                 </div>
 
