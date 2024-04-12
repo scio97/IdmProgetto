@@ -5,7 +5,7 @@ implementando anche un algoritmo appositamente ottimizzato per la normalizzazion
 
 ### TECNOLOGIE IMPLEMENTATE
 
-Il progetto è stato sviluppato utilizzando le seguenti tecnologie: Java (+JSP), JavaScript, Spring (+SpringBoot), Maven, Tomcat, MySQL, JPA (+Hibernate), SQL
+Il progetto è stato sviluppato utilizzando le seguenti tecnologie: Java (+JSP), JavaScript, Spring (+SpringBoot), Maven, Tomcat, MySQL, JPA (+Hibernate)
 
 Inoltre segue i pattern architetturali: DAO e MVC
 
